@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "Data Co",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dataco.sac.oeetimeusage",
   "version": "0.1.0",
   "name": "OEE Time-Usage Waterfall",
@@ -17,14 +17,14 @@
       "kind": "main",
       "tag": "com-dataco-sac-oeetimeusage",
       "url": "/oeeTimeUsage.js",
-      "integrity": "sha256-sQ+IiFT8i9WYPKRDG5DAsGX9fIzjZymrYqjQoLLu1Xw=",
+      "integrity": "sha256-vP+xRtK85l8FYwzkD1DQFW0F2ikUNL8e0tRQmdEQ+DI=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dataco-sac-oeetimeusage-styling",
       "url": "/oeeTimeUsageStyling.js",
-      "integrity": "sha256-U5Ttg6g/MVDQPbxuvJfNseijzF79w4tKxu7TdOIoJm4=",
+      "integrity": "sha256-x6atXZCv04FHIX19hrAqTyUIfkeDRj0+ArfS72ESPTY=",
       "ignoreIntegrity": true
     }
   ],

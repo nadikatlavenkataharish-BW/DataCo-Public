@@ -1,3 +1,9 @@
+/*!
+ * OEE Time-Usage Waterfall — SAC custom widget (main)
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* OEE Time-Usage Waterfall — SAC custom widget (main component). Self-contained; no external libraries. */
 (function () {
   "use strict";
