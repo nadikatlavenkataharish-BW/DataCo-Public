@@ -1,0 +1,121 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.safetypyramid",
+  "version": "0.1.0",
+  "name": "Safety Pyramid",
+  "newInstancePrefix": "SafetyPyramid",
+  "description": "Safety triangle of incidents by severity (fatality → LTI → MTI → first aid → near miss) with LTIFR/TRIFR frequency rates when exposure hours are bound.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABxUlEQVR4Xu2bTW7CMBBGacU1UBe9VZtbQE9RuEXaW7GoehAqFqA02I5n5pufOHlrK57vzThYSNlsVpbNU0389/3npWZdNL5OH5P5igvmGnxMScRzrmuthL9SypIU0FL4G7lMDwJaDF+S8E9Ay+FzErLvgKVwF7CE7qemwH0C+tfJn2pVXAV4h7/iKuCGpwg3AZ6hh7gJGOMlxEWAV9gULgJyeIgxF+ARsoS5gCmsBZkKsA5Xw7ZmEYruHO+PJTMB/dsvyWP3vSOt52J6BChQhXExEWAVhoOJAC4W4tQFWISQoC5AirZAVQHaxSNQFYBCU6SaAM2ikagJQKMlVO0maHWTk6IioN+/SOvK0p1+oM+GHwHN8BrABWiDFgwVgC7OAqgAK5CiYQKQRVkCE2ANSjhEAKoYDyACvECIFwtAFOGJ+CaIvplZIxLQHw/W9SbpDkd2HeIjEAFJI9gCJJtGgi0gGtyGsARwN4sIS0BUOI0hC+BsEhmygOhQG0QSQH34HCAJmAuURpFugpIbV1SanAAKdwE1Hxi1wjDrOgHDri5hCsYZHyagZQmpbMkj0KKEXKbsO6AlCaUsVd+rzPV7opaauKLFH3qHdmRuro++AAAAAElFTkSuQmCC",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-safetypyramid",
+      "url": "/safetyPyramid.js",
+      "integrity": "sha256-BbyUMufmBm4+qRL6Xokjn84E1MIkFYjCmLzjZg5SF4o=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-safetypyramid-styling",
+      "url": "/safetyPyramidStyling.js",
+      "integrity": "sha256-Gt94tUwBpq7AHRpDTju1FR4F9yF3dNH/8dQtaOuw/Cg=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Safety Performance"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Incidents by severity"
+    },
+    "rateBase": {
+      "type": "integer",
+      "default": 1000000
+    },
+    "ltiLevels": {
+      "type": "string",
+      "default": "1-2"
+    },
+    "trifrLevels": {
+      "type": "string",
+      "default": "1-3"
+    },
+    "ltifrTarget": {
+      "type": "integer",
+      "default": 1
+    },
+    "trifrTarget": {
+      "type": "integer",
+      "default": 5
+    },
+    "showRatio": {
+      "type": "boolean",
+      "default": true
+    },
+    "showRates": {
+      "type": "boolean",
+      "default": true
+    },
+    "levelColors": {
+      "type": "string",
+      "default": "#7F1D1D,#B91C1C,#E9730C,#E0A100,#8FB3D9,#C9D7E6"
+    },
+    "goodColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "badColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "width": {
+      "type": "integer",
+      "default": 820
+    },
+    "height": {
+      "type": "integer",
+      "default": 420
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Site / period (optional — values are summed)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Incident counts from most to least severe; a measure named '…hours…' is used as exposure",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
