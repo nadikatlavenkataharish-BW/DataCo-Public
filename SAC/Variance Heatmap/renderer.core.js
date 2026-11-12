@@ -1,3 +1,9 @@
+/*!
+ * Variance Heatmap — renderer
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* =============================================================================
  * Variance Heatmap — canonical renderer (v0.1)
  * Row dimension × column dimension grid, coloured by variance % (Actual vs Plan)
