@@ -1,0 +1,137 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.gradetonnagecurve",
+  "version": "0.1.0",
+  "name": "Grade-Tonnage Curve",
+  "newInstancePrefix": "GradeTonnageCurve",
+  "description": "Grade-tonnage curve from block-model grade bins: tonnes and average grade above cut-off on twin axes, with a cut-off read-out of tonnes, grade and contained metal.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACR0lEQVR4Xu2b0VHDMAyGA8caLME40B14oExBeWCHwjgswSBw6uGc61iOZEuy4/i761u54/8kK0raTtNg39xQ4j+9vP1S3tcan++vq/mSb9hq8JCUiFusar2EB1JZogJ6Cu/AMi0E9Bg+JeFKQM/hMQnoDNgLs4A9VD/WBaMD9tLqGEMAtQPOpyP1rZvijvPf+hIOxxPnT5uFJcCnZRnnx5/p8HVPkj7fDHEug6njULszILwjJcHdIGUJwDohhpUQP7gPJsEJIA9BDAjoXjFS3SIFN7xPsYAr2/8yQjQlxMJD1akzQFTAfPYiVwhpCRAcC89BRQCgKaGk5UPUBGhJKG15UwGSEqRa3lyAhATpqqtdBVLkzAStqlcRwO0EzapXE0CRYFH1qgJSEqyqXl3AQsL383R5BVC3uRKyb4clgMEosc2VoLoIrRHd6B4+xNfmFFUEYIMOwjuk7x0wzAVI7vESmApYm/LhsmTRBWYCcoedtgQTAZzwOStzCaoCcrc6SwlqAkqHnZUEFQFrw46KhQRxAZzzTkH7sbqYgNzzTkHz8igiQKrlOUhdHosEaFZ9cWeo9Kg9W0CNqmtIYAuwrHoMTELukWAJqFF1qgQgRwJJQO2qYxIkjgRJQPhoivPhozalR4IkAHASLJ7TccGWJcqRIAvwJbRI7KN5yhbJErAFXGhKeKA7AZdOZXyDrUsBHIYAZ4vyA6Ne8LOODvCruocuCDMuOqBnCbFs0SPQowQsEzoDepKQyrL601KA80XqluipiAMt/gAhnjVMNsZXkAAAAABJRU5ErkJggg==",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-gradetonnagecurve",
+      "url": "/gradeTonnageCurve.js",
+      "integrity": "sha256-JVOOcmpd//I4G0Dq09UTJnKRQGReklZHVnLtW750ijU=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-gradetonnagecurve-styling",
+      "url": "/gradeTonnageCurveStyling.js",
+      "integrity": "sha256-9K9xU03XzcJCz/nGMJhdsRNNRM9k+xAH9GZq5h8OIec=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Grade–Tonnage Curve"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Tonnes and average grade above cut-off"
+    },
+    "cutoff": {
+      "type": "number",
+      "default": 0.3
+    },
+    "gradeUnit": {
+      "type": "string",
+      "default": "% Cu"
+    },
+    "gradeDecimals": {
+      "type": "integer",
+      "default": 2
+    },
+    "metalFactor": {
+      "type": "number",
+      "default": 0.01
+    },
+    "metalUnit": {
+      "type": "string",
+      "default": "t Cu"
+    },
+    "showMetal": {
+      "type": "boolean",
+      "default": true
+    },
+    "showArea": {
+      "type": "boolean",
+      "default": true
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "prefix": {
+      "type": "string",
+      "default": ""
+    },
+    "suffix": {
+      "type": "string",
+      "default": " t"
+    },
+    "tonnesColor": {
+      "type": "string",
+      "default": "#0A6ED1"
+    },
+    "gradeColor": {
+      "type": "string",
+      "default": "#E9730C"
+    },
+    "cutoffColor": {
+      "type": "string",
+      "default": "#33414A"
+    },
+    "width": {
+      "type": "integer",
+      "default": 860
+    },
+    "height": {
+      "type": "integer",
+      "default": 420
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Grade bin / class (numeric label, e.g. 0.30)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Tonnes, 2 Bin grade (optional — else parsed from the bin label)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
