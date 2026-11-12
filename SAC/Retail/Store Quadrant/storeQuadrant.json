@@ -1,0 +1,129 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.storequadrant",
+  "version": "0.1.0",
+  "name": "Store Performance Quadrant",
+  "newInstancePrefix": "StoreQuadrant",
+  "description": "Store bubble scatter on two KPIs (e.g. sales per m² vs margin %), split into four labelled quadrants by medians or targets; bubble size = revenue. ZAR / USD.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACL0lEQVR4Xu2bv1HFMAzGHxzHJCwANRVjQMMCoYExoOEtQANjUFHDAkxCAyfunMuLZUuy5f/5lbFy8fdJsp3Cu93G2Bxx5D9ff/5y4mrj7u2C1OcNaFX4Gp8Rx66s9SIe8GlBDehJvMGlyTKgR/E+Ew4M6Fm8ywTnGpCL6fU816dQZgNGyD5WBcUroDQnpSfA5efx2wo9fTjjvu6kegMw4QYzFmNE1S3gE7+EG4dRrQFSUdJ4Q7UG5EJ1DVju6fubr2ANodmE96TrgYoB2GHGPIsxIgfDt0C0AdRRlhovTbQBrVOlAdKFzBDyXrQB1CJHjZcm2oBUhGQzZPtUMQCyvM409kxKDhNUzgGGFOVuTJBkV3IgUjUgJVg1SExxodICLdO0AVhVAK7nTf0Oc1mLlYgHmlkDfEhFL2m6BTQgKyDHz0zqb/i2Z9KAFHv7EhCf+hs+hm+BzQBvfQzAZsAASfZC7gKlme5frCnsn27VphVtwHT5bk/w40plgph4AJ5rmRDVApj4/wkipkhxiTdQ41yCDaBEUuM+uOK4ceoHIa44blxJxBUgFSWNz43YgN7YDKgxo9wtjhunvgjmgBJHjXMRV4D0kCONX+ISqSUeCDoJgijO6h4j3qApFkNcAfPEiOMuNV4LwQYALpGtiA9ugYM+VfrxKUVUBfTAbADnglEvLLUOXwHWrbHe7w2sK92qgJ5bAdOGtkCPJrg0OdeAnkzwaSGvlgKtrgs9JXEjFX/zzbbWGJQAwgAAAABJRU5ErkJggg==",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-storequadrant",
+      "url": "/storeQuadrant.js",
+      "integrity": "sha256-t15DS1x6rjGkR6Ok5fZpyNPAXmRhD++x30BCmvxdP7A=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-storequadrant-styling",
+      "url": "/storeQuadrantStyling.js",
+      "integrity": "sha256-a4xlhVpFYiGPnj6qqhCgYw/PxetmkrFqbR8mKelq25Y=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Store Performance"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Sales density vs margin, bubble = revenue"
+    },
+    "splitMode": {
+      "type": "string",
+      "default": "median"
+    },
+    "xTarget": {
+      "type": "integer",
+      "default": 0
+    },
+    "yTarget": {
+      "type": "integer",
+      "default": 0
+    },
+    "quadrantLabels": {
+      "type": "string",
+      "default": "Stars,Grow sales,Fix margin,Review"
+    },
+    "xFormat": {
+      "type": "string",
+      "default": "currency"
+    },
+    "yFormat": {
+      "type": "string",
+      "default": "pct"
+    },
+    "labelMode": {
+      "type": "string",
+      "default": "outliers"
+    },
+    "currency": {
+      "type": "string",
+      "default": "ZAR"
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": ""
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "qColors": {
+      "type": "string",
+      "default": "#1A9850,#0A6ED1,#E9730C,#D73027"
+    },
+    "width": {
+      "type": "integer",
+      "default": 900
+    },
+    "height": {
+      "type": "integer",
+      "default": 480
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Dimensions in order: 1 Store, 2 Region / format (optional)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 X KPI, 2 Y KPI, 3 Bubble size (optional)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
