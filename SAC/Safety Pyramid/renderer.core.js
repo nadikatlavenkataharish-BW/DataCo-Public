@@ -1,3 +1,9 @@
+/*!
+ * Safety Pyramid — renderer
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* =============================================================================
  * Safety Pyramid — canonical renderer (v0.1)
  * Incident counts by severity (top = most severe) drawn as a safety triangle,

@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "Data Co",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dataco.sac.safetypyramid",
   "version": "0.1.0",
   "name": "Safety Pyramid",
@@ -17,14 +17,14 @@
       "kind": "main",
       "tag": "com-dataco-sac-safetypyramid",
       "url": "/safetyPyramid.js",
-      "integrity": "sha256-bXKMjwR86FtI897Y4y0F4Afnf86xRl++xNMQw+D/tKU=",
+      "integrity": "sha256-BbyUMufmBm4+qRL6Xokjn84E1MIkFYjCmLzjZg5SF4o=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dataco-sac-safetypyramid-styling",
       "url": "/safetyPyramidStyling.js",
-      "integrity": "sha256-ixFCKvqibt/T3Iodq/zBr7JC1Z4+/P3j1nGzkG4JVZM=",
+      "integrity": "sha256-Gt94tUwBpq7AHRpDTju1FR4F9yF3dNH/8dQtaOuw/Cg=",
       "ignoreIntegrity": true
     }
   ],
