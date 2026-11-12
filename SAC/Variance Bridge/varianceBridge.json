@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "Data Co",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dataco.sac.variancebridge",
   "version": "0.1.0",
   "name": "Variance Bridge",
@@ -17,14 +17,14 @@
       "kind": "main",
       "tag": "com-dataco-sac-variancebridge",
       "url": "/varianceBridge.js",
-      "integrity": "sha256-FgSr9m2W0LjLFjzTZHeDBZmjLT+LMU5FinX2Ue9XrbQ=",
+      "integrity": "sha256-0jMLM0HPcceHLs5RipVsTQCTKg3+kdMwbAxikPutCpQ=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dataco-sac-variancebridge-styling",
       "url": "/varianceBridgeStyling.js",
-      "integrity": "sha256-WKy3J66DoCjHASXk5PaP7jr5rkNaxHFOLa7Y5tJ6wI8=",
+      "integrity": "sha256-1wuWjicGHRarhYSzKbANPxoJ7ooHTukKRe4KbKJlAjU=",
       "ignoreIntegrity": true
     }
   ],
