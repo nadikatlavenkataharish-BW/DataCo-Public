@@ -1,0 +1,137 @@
+{
+  "eula": "",
+  "vendor": "Data Co",
+  "license": "",
+  "id": "com.dataco.sac.variancekpitile",
+  "version": "0.1.0",
+  "name": "Variance KPI Tile",
+  "newInstancePrefix": "VarianceKpiTile",
+  "description": "KPI tile: headline Actual with variance chips vs Plan and Prior Year (abs + %), favourable/unfavourable colouring, and an optional Actual-vs-Plan sparkline.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAB2UlEQVR4Xu2bsU5DMQxFH4gJPoSN/hmsTAxMrPBndONDYAVlSBXcOLEdpy92chYkaEH3+CbRi+i2LebmihL/9vHzl/K60fj5OFTzFV9gNTikJOIam5qX8IFSlqwAT+EjWKYzAR7DlyT8E+A5PCYB3QNm4SRghunnWrAaMEvVMZaA2RtwwxXw/f7AfUszd09H9He8Pn9tL2/34r8xfQNMCwjTD8SvEkwL0MCsADh1aQvMCtDCpABs2pIWmBSgiTkBtSnXfg453QnO9DQYiPeE5hqgzRKgbdQaS4C1iWmzBGgbtYYJAeESptdFzPAC0uA9RLCvxC4JNvX0+6XrMgrDNyAlhIWBW1sx7LMAnH5u0lhDKK2IzwJDLgFK+EAaFJNRY7glIA2SWx4UhhKQC0+pM9wnOHQRINmYNMJLUBegdW5zJy9FdROUntvUTa8HKgJqxxFsRbqD7xk+0CyAsnZjnXMi9qZJACU8tkNz39sL8SbYGgCe25fa9CDsBtTWO5e9gkdYAlqnPiKsJQCntff0NGAJSI8vD+EDbAGpBA+IBHhiCfA0TQlLQLRG+YCRF9KsqwHpVGdoAcx41gDPEnLZskvAowQsE7oHeJJQylL9aGnA6n+QeRriohd/8bu70rxN5bAAAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-variancekpitile",
+      "url": "/varianceKpiTile.js",
+      "integrity": "sha256-d3t+GXhBBOzy+LmD55kXnQDm0p5LiAbCV4cRxoKXBgY=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-variancekpitile-styling",
+      "url": "/varianceKpiTileStyling.js",
+      "integrity": "sha256-C9hAK2X3lJUNSO4eSKWdGbu5drKZVkagovDvevONDqA=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "subtitle": {
+      "type": "string",
+      "default": ""
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "prefix": {
+      "type": "string",
+      "default": ""
+    },
+    "suffix": {
+      "type": "string",
+      "default": ""
+    },
+    "aggregation": {
+      "type": "string",
+      "default": "sum"
+    },
+    "invertSign": {
+      "type": "boolean",
+      "default": false
+    },
+    "showPlan": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPY": {
+      "type": "boolean",
+      "default": true
+    },
+    "showSparkline": {
+      "type": "boolean",
+      "default": true
+    },
+    "goodColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "badColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "lineColor": {
+      "type": "string",
+      "default": "#0A6ED1"
+    },
+    "planLineColor": {
+      "type": "string",
+      "default": "#8794A0"
+    },
+    "bgColor": {
+      "type": "string",
+      "default": "#FFFFFF"
+    },
+    "width": {
+      "type": "integer",
+      "default": 320
+    },
+    "height": {
+      "type": "integer",
+      "default": 180
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Period for sparkline (optional)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Actual, 2 Plan, 3 Prior Year (2–3 optional)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
