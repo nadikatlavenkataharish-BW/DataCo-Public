@@ -17,10 +17,33 @@ one JSON manifest and one ZIP bundle.
 | **Order Flow Funnel** | 0.3.0 | Process‑flow funnel with stage conversion | [`SAC/Flow Diagram`](SAC/Flow%20Diagram) |
 | **Gantt Chart** | 0.1.1 | Timeline bars from start/end dates with swimlanes | [`SAC/ganttChart_1.json`](SAC/ganttChart_1.json) |
 
-Screenshots of each widget are in [`SAC/README.md`](SAC/README.md), and every widget folder has its own README with its data
+Screenshots of every widget are in the [gallery](#widget-gallery) below, and each widget folder has its own README with its data
 model and properties.
 
-### Variance pack
+## Widget gallery
+
+### Variance KPI Tile
+![Variance KPI Tile](SAC/Variance%20KPI%20Tile/Example.png)
+
+### Variance Bridge
+![Variance Bridge](SAC/Variance%20Bridge/Example.png)
+
+### Bullet Chart
+![Bullet Chart](SAC/Bullet%20Chart/Example.png)
+
+### Variance Heatmap
+![Variance Heatmap](SAC/Variance%20Heatmap/Example.png)
+
+### Calendar Heatmap
+![Calendar Heatmap](SAC/Calendar%20Heatmap/Example.png)
+
+### Order Flow Funnel
+![Order Flow Funnel](SAC/Flow%20Diagram/Example.png)
+
+### Gantt Chart
+![Gantt Chart](SAC/ganttChart_Example.png)
+
+## Variance pack
 
 The four variance widgets are built to be used together on management dashboards, and they share
 the same conventions:
