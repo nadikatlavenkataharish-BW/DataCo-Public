@@ -1,0 +1,128 @@
+{
+  "eula": "",
+  "vendor": "Data Co",
+  "license": "",
+  "id": "com.dataco.sac.fleetstatustimeline",
+  "version": "0.1.0",
+  "name": "Fleet Status Timeline",
+  "newInstancePrefix": "FleetStatusTimeline",
+  "description": "One lane per truck/shovel/drill with coloured status segments (operating, standby, delay, down, maintenance) across the shift, plus % time operating.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABaUlEQVR4Xu2bsQ3CMBBFA2IJCmAGeoagJ1tETIEyBj1D0DMDNIwBogBBYvt+ZFlH7v6rnUj3/M85WUpVEd9MkPJ3zeGBrPs3ju1erC+5YKyFd0mJmMZ2zUrxL1K1BAVYKv5NrKaeAIvFpyT8CLBcfExC9AzwwkeAh90PpYAJ8BL1GDNUwLpZoUthmtMtubbdLuF3hbi0V/F59wmgADEjxqEA4xssQgGiIuPAcwDyTR1KLT0AfMdzcZ8A9wLgFigyCt/P6VF4vslKONK27hNAAVkZMwAFGNjELCggS58B4DkA+aYOpa4WwiPylVYu7hPgXgDcAkVGYd4K6+O+BShAP4S6UICuf33cC4DngDKjsABvhcvDFkAdFxmFeSusj/sWoAD9EOpCAbr+9XEvAJ4DyozCvBVW59MCyA9GVviu1f0Z8CPAQwq6NfYSYFlCqLZgC1iUEKspegZYkpCqRfy19MVY/yeytImkFE9ThFvCmPqa1gAAAABJRU5ErkJggg==",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-fleetstatustimeline",
+      "url": "/fleetStatusTimeline.js",
+      "integrity": "sha256-9BygrJBcM61P4hwjU4PIXoHMvZyphZupoXRNX0zqP4o=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-fleetstatustimeline-styling",
+      "url": "/fleetStatusTimelineStyling.js",
+      "integrity": "sha256-4QYHg4oodvvsM3qSft/Cbd2NJHmDhvNmEhFTZRJbP0M=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Fleet Status"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Equipment state across the period"
+    },
+    "statusColors": {
+      "type": "string",
+      "default": "Operating:#1A9850,Standby:#E0A100,Delay:#E9730C,Down:#D73027,Maintenance:#0A6ED1"
+    },
+    "palette": {
+      "type": "string",
+      "default": "#925ACE,#0F828F,#5B738B,#C87B00,#D04343"
+    },
+    "operatingStatus": {
+      "type": "string",
+      "default": "Operating"
+    },
+    "sortBy": {
+      "type": "string",
+      "default": "name"
+    },
+    "rowHeight": {
+      "type": "integer",
+      "default": 22
+    },
+    "labelWidth": {
+      "type": "integer",
+      "default": 120
+    },
+    "showSummary": {
+      "type": "boolean",
+      "default": true
+    },
+    "showLegend": {
+      "type": "boolean",
+      "default": true
+    },
+    "width": {
+      "type": "integer",
+      "default": 1000
+    },
+    "height": {
+      "type": "integer",
+      "default": 440
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "equipment",
+          "description": "Equipment unit",
+          "type": "dimension"
+        },
+        {
+          "id": "status",
+          "description": "Status",
+          "type": "dimension"
+        },
+        {
+          "id": "startTime",
+          "description": "Start timestamp",
+          "type": "dimension"
+        },
+        {
+          "id": "endTime",
+          "description": "End timestamp",
+          "type": "dimension"
+        },
+        {
+          "id": "groupDim",
+          "description": "Fleet / group (optional)",
+          "type": "dimension"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
