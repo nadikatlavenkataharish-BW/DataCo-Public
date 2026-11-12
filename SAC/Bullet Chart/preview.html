@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bullet Chart — preview</title>
+<style>
+  :root { --ink:#33414A; --muted:#8794A0; --line:#E3E8ED; --bg:#F7F9FB; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:'72',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  .wrap { max-width:1200px; margin:0 auto; padding:24px 20px 56px; }
+  h1 { margin:0 0 2px; font-size:20px; }
+  p.sub { margin:0 0 16px; color:var(--muted); font-size:13px; }
+  .bar { display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; background:#fff;
+         border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-bottom:16px; }
+  .bar label { font-size:13px; display:flex; align-items:center; gap:6px; }
+  .bar input[type=number]{ width:70px; }
+  select, input { font:inherit; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px; overflow:auto; }
+  #chart { width:100%; height:360px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Bullet Chart — preview</h1>
+  <p class="sub">Same renderer the SAC widget uses, with synthetic data. Tweak the options and it re-renders.</p>
+  <div class="bar"><label>Poor below (% of target) <input type="number" step="1" data-k="bandLow" value="80"/></label><label>Good from (% of target) <input type="number" step="1" data-k="bandHigh" value="100"/></label><label><input type="checkbox" data-k="invertSign"/> Cost measure (lower = good)</label><label>Sort <select data-k="sortBy"><option value="none" selected>none</option><option value="attainment">attainment</option><option value="actual">actual</option></select></label><label>Axis <select data-k="scaleMode"><option value="shared" selected>shared</option><option value="perRow">perRow</option></select></label><label>Row height (px) <input type="number" step="1" data-k="rowHeight" value="34"/></label><label>Label width (px) <input type="number" step="1" data-k="labelWidth" value="140"/></label><label>Number scale <select data-k="valueScale"><option value="auto" selected>auto</option><option value="none">none</option><option value="K">K</option><option value="M">M</option><option value="B">B</option></select></label><label>Decimals <input type="number" step="1" data-k="decimals" value="1"/></label></div>
+  <div class="card"><div id="chart"></div></div>
+</div>
+<script src="renderer.core.js"></script>
+<script>
+
+var SITES=[["Site A",182,200,196],["Site B",151,140,148],["Site C",88,120,97],["Site D",205,210,214],["Site E",64,90,72],["Site F",119,115,121]];
+function sample(){ return {items:SITES.map(function(s){return {label:s[0],actual:s[1]*1000,target:s[2]*1000,forecast:s[3]*1000};}), labels:{actual:"YTD Production (t)",target:"Plan",forecast:"Full-year Forecast"}}; }
+var opts = {};
+function draw(){
+  var el=document.getElementById("chart");
+  var o=Object.assign({}, opts, {width: el.clientWidth, height: el.clientHeight});
+  el.innerHTML = buildBulletSVG(sample(o), o);
+}
+document.querySelectorAll("[data-k]").forEach(function(el){
+  function read(){ var k=el.dataset.k; opts[k] = el.type==="checkbox" ? el.checked : (el.type==="number" ? Number(el.value) : el.value); }
+  read(); el.addEventListener("change", function(){ read(); draw(); });
+});
+window.addEventListener("resize", draw); draw();
+</script>
+</body>
+</html>

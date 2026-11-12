@@ -1,0 +1,157 @@
+{
+  "eula": "",
+  "vendor": "Data Co",
+  "license": "",
+  "id": "com.dataco.sac.bulletchart",
+  "version": "0.1.0",
+  "name": "Bullet Chart",
+  "newInstancePrefix": "BulletChart",
+  "description": "Bullet chart per member: qualitative bands as % of target, Actual bar, Target tick, optional Forecast marker and an attainment % column.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABqklEQVR4Xu2bMVbDMBBEDS8VHIQODpQ7QJuKIhUNBdwhBwpdTsAJoIWXQo4te+WR7I2sHf3aL9aOZza7L3HTVLi5Qcq/ez7+Idetjd/Pp8n6gheUWrhPSIhb6alZKf5MqJZRASwV75BqGghgsfiQCD0BLBcviSD2ABZaARie/pgLqgNYrC5BL8CmVAfsd6f26K9vD8llwAL8fDxuk++iwPv36eA+Vjrb/ctXe02NgEDtAaI3hkzaSRG1+NE7oAqgaNsiiOkBajnMCb0D6AWAI4BMVddkv7vcbc7ZYAHWxpz5vwt9BOgFKCYCS62/PrAAuddhZP31QZojfQToBYAj0DQq63D28ZreAVWAtU141yamB2TPqwb0DqAXAI4AMlVpstT6mzwK52ap9deHPgL0AsA9IBdaa7ADFiDXOpyyBjuQxk0fAXoB4AgorcOxSL9QJ4/p9A6oAsR60BoxPSA5ZzPp5n7xM9A7gF4AOALIVKWB1hrs6L0zxPKP8e47RPQR6AmAvGZWOn6NAwdYFmGsttEIWBRBqknsAZZECNUy+WrpmVK/HSw9xIoW/0kMb85RSvhbAAAAAElFTkSuQmCC",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-bulletchart",
+      "url": "/bulletChart.js",
+      "integrity": "sha256-IMu3jStTeP5nQei7idEbYkk0sNE3O7MWAMI+TCYt1ws=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-bulletchart-styling",
+      "url": "/bulletChartStyling.js",
+      "integrity": "sha256-WKBGeG1oHv1L+4tau9FFiFPzuSxJJa7XOeFx+MNxrVA=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Attainment vs Target"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Actual, target and forecast by member"
+    },
+    "bandLow": {
+      "type": "integer",
+      "default": 80
+    },
+    "bandHigh": {
+      "type": "integer",
+      "default": 100
+    },
+    "invertSign": {
+      "type": "boolean",
+      "default": false
+    },
+    "sortBy": {
+      "type": "string",
+      "default": "none"
+    },
+    "scaleMode": {
+      "type": "string",
+      "default": "shared"
+    },
+    "rowHeight": {
+      "type": "integer",
+      "default": 34
+    },
+    "labelWidth": {
+      "type": "integer",
+      "default": 140
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "prefix": {
+      "type": "string",
+      "default": ""
+    },
+    "suffix": {
+      "type": "string",
+      "default": ""
+    },
+    "barColor": {
+      "type": "string",
+      "default": "#33414A"
+    },
+    "targetColor": {
+      "type": "string",
+      "default": "#0A6ED1"
+    },
+    "forecastColor": {
+      "type": "string",
+      "default": "#E9730C"
+    },
+    "bandPoor": {
+      "type": "string",
+      "default": "#F6D5D3"
+    },
+    "bandOk": {
+      "type": "string",
+      "default": "#FBEFC9"
+    },
+    "bandGood": {
+      "type": "string",
+      "default": "#D8EFDF"
+    },
+    "goodColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "badColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "width": {
+      "type": "integer",
+      "default": 760
+    },
+    "height": {
+      "type": "integer",
+      "default": 360
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Member (site, region, product …)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Actual, 2 Target/Plan, 3 Forecast (optional)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
