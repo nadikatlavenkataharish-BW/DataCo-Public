@@ -48,3 +48,9 @@ in the Builder. `supportsExport` is `true`, so it is included in PDF/PPT export.
 | `valueScale` | auto | `auto`, `none`, `K`, `M`, `B`. |
 | `decimals / prefix / suffix` | 1 / – / – | Number format, e.g. prefix `$`. |
 | colour properties | | All exposed in the Styling panel. |
+
+## Licence
+
+Proprietary. Copyright © 2026 The Data Co (Pty) Ltd. All rights reserved. This widget may be installed
+and used only under a written licence or services agreement with The Data Co; copying, modification and
+redistribution are prohibited. See the repository [LICENSE](../../LICENSE).

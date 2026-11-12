@@ -1,3 +1,9 @@
+/*!
+ * Variance KPI Tile — renderer
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* =============================================================================
  * Variance KPI Tile — canonical renderer (v0.1)
  * Pure function, no DOM / no libraries. Shared by the SAC widget and preview.

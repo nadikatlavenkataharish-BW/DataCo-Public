@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "Data Co",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dataco.sac.variancekpitile",
   "version": "0.1.0",
   "name": "Variance KPI Tile",
@@ -17,14 +17,14 @@
       "kind": "main",
       "tag": "com-dataco-sac-variancekpitile",
       "url": "/varianceKpiTile.js",
-      "integrity": "sha256-d3t+GXhBBOzy+LmD55kXnQDm0p5LiAbCV4cRxoKXBgY=",
+      "integrity": "sha256-8KC8bD/0MkbouFiilJ3CMHoMOOWgtkcaCKVtiYrDxyI=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dataco-sac-variancekpitile-styling",
       "url": "/varianceKpiTileStyling.js",
-      "integrity": "sha256-C9hAK2X3lJUNSO4eSKWdGbu5drKZVkagovDvevONDqA=",
+      "integrity": "sha256-c2Mhp/m4BVdXSdn6cSaYfqFhDxNPTI0rwHzYWJAtC2A=",
       "ignoreIntegrity": true
     }
   ],
