@@ -1,3 +1,9 @@
+/*!
+ * Order Flow Funnel — renderer
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* =============================================================================
  * Order Flow Funnel — canonical renderer (v0.3)
  * -----------------------------------------------------------------------------

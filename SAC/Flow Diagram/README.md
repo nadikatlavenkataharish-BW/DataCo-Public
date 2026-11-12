@@ -101,3 +101,9 @@ and the same build/QA loop (concatenate renderer + wrapper, `node --check`, rast
 and eyeball, mock the data binding to test parsing, compute SRI hashes, zip). The
 renderer function is the only piece that changes per chart type — the basis for the
 planned reusable `sac-custom-widget` skill.
+
+## Licence
+
+Proprietary. Copyright © 2026 The Data Co (Pty) Ltd. All rights reserved. This widget may be installed
+and used only under a written licence or services agreement with The Data Co; copying, modification and
+redistribution are prohibited. See the repository [LICENSE](../../LICENSE).

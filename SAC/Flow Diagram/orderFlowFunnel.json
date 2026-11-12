@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "Data Co",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dataco.sac.orderflowfunnel",
   "version": "0.3.0",
   "name": "Order Flow Funnel",
@@ -16,14 +16,14 @@
       "kind": "main",
       "tag": "com-dataco-sac-orderflowfunnel",
       "url": "/orderFlowFunnel.js",
-      "integrity": "sha256-jnMSzPOiRRluduaF5RMZde4Vc0JyMS/r/4aZyEolip8=",
+      "integrity": "sha256-gU7lnH0x/dw5UG95lBg0Qbx5xQWrEbzkTcflCGBff6o=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dataco-sac-orderflowfunnel-styling",
       "url": "/orderFlowFunnelStyling.js",
-      "integrity": "sha256-Uc9GY+Cty5axUGY+yFl+JheQtmpvTK6xeiyvuig6KZk=",
+      "integrity": "sha256-IOQANfbYpn2gObbkoA0UkV5DiXqLqumYp2HfALQ8M8Q=",
       "ignoreIntegrity": true
     }
   ],
