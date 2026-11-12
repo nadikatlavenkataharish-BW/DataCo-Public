@@ -1,0 +1,157 @@
+{
+  "eula": "",
+  "vendor": "Data Co",
+  "license": "",
+  "id": "com.dataco.sac.oeetimeusage",
+  "version": "0.1.0",
+  "name": "OEE Time-Usage Waterfall",
+  "newInstancePrefix": "OeeTimeUsage",
+  "description": "Time-usage waterfall from calendar hours through scheduled/unscheduled down, standby and delays to direct operating hours, with Availability, Utilisation, Efficiency and OEE tiles.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABW0lEQVR4Xu2bQRLBQBBFUa6hLJzAdcgtEqcgtwjXcQIL5SCUhVREpjuLfEl3/7c1Rf3XPaOlzGxGYjPvE3+fH5991k2Nc3lQ84kLrAZvI4lYpKrmJfwbKUunAE/hP6Qy/QjwGF6S8CXAc/iUhOQZEIVaQITqd3UBOyBKq6dYagKqUyEuyYpT/Xq1kQev7Da9gTJ8B1CAtgW8QwHeK6xBAZoh76hzAIpq95Dni8sK9dFfDCpgioOORvgtQAFai3gnvIBBD0EUyF+Zown419ecRvgtEF7AaFsAxTZfi299Le+4SRAFcsIMvwUoANW2VqAAK5VCQQEos1agACuVQkEBKLNWoAArlUJBASizVqAAK5VCQQEos1agACuVQqE+Fm/+EdIC7cfeGuE7oBbQ54KRF5pZ2QHNqkbognbGnw7wLKErW+cW8CghlSl5BniSIGVRr5a+sXqfyFMRCYoX3oZMrtb2Bw0AAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-oeetimeusage",
+      "url": "/oeeTimeUsage.js",
+      "integrity": "sha256-sQ+IiFT8i9WYPKRDG5DAsGX9fIzjZymrYqjQoLLu1Xw=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-oeetimeusage-styling",
+      "url": "/oeeTimeUsageStyling.js",
+      "integrity": "sha256-U5Ttg6g/MVDQPbxuvJfNseijzF79w4tKxu7TdOIoJm4=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Time Usage & OEE"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Calendar hours to direct operating hours"
+    },
+    "lossTypes": {
+      "type": "string",
+      "default": "SD,UD,SB,OD"
+    },
+    "availTarget": {
+      "type": "integer",
+      "default": 85
+    },
+    "utilTarget": {
+      "type": "integer",
+      "default": 85
+    },
+    "effTarget": {
+      "type": "integer",
+      "default": 90
+    },
+    "oeeTarget": {
+      "type": "integer",
+      "default": 65
+    },
+    "showSubtotals": {
+      "type": "boolean",
+      "default": true
+    },
+    "showKpis": {
+      "type": "boolean",
+      "default": true
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "none"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 0
+    },
+    "prefix": {
+      "type": "string",
+      "default": ""
+    },
+    "suffix": {
+      "type": "string",
+      "default": " h"
+    },
+    "totalColor": {
+      "type": "string",
+      "default": "#5B738B"
+    },
+    "sdColor": {
+      "type": "string",
+      "default": "#8794A0"
+    },
+    "udColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "sbColor": {
+      "type": "string",
+      "default": "#E0A100"
+    },
+    "odColor": {
+      "type": "string",
+      "default": "#E9730C"
+    },
+    "plColor": {
+      "type": "string",
+      "default": "#925ACE"
+    },
+    "goodColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "badColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "width": {
+      "type": "integer",
+      "default": 960
+    },
+    "height": {
+      "type": "integer",
+      "default": 420
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Equipment / fleet (optional — values are summed)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Calendar hours, then loss hours matching lossTypes (e.g. SD, UD, SB, OD)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
