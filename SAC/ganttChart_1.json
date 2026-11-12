@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "DataVizCo",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dvc.sac.ganttchart",
   "version": "0.1.1",
   "name": "Gantt Chart",
@@ -17,14 +17,14 @@
       "kind": "main",
       "tag": "com-dvc-sac-ganttchart",
       "url": "/ganttChart.js",
-      "integrity": "sha256-N9egCREHgD8w9azv2T3R2cNHE5W1IGiHcrjZBbHC1vM=",
+      "integrity": "sha256-m3JdyiryNNqa31XW2szh97tgh+XuUf83l9VySzoSRno=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dvc-sac-ganttchart-styling",
       "url": "/ganttChartStyling.js",
-      "integrity": "sha256-E1wgakKHC0io8E567RaaMI7hdBe8rqAmdj4SWw5OPCk=",
+      "integrity": "sha256-sSiJNEOQo+zj+G7BE9VxcxOj1xZ6jo/G3Sx759eU/t0=",
       "ignoreIntegrity": true
     }
   ],
