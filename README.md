@@ -9,95 +9,96 @@ mainly **SAP Analytics Cloud (SAC) custom widgets**. Each widget is self-contain
 pure SVG, needs no CDN or external libraries, and can be installed in any SAC tenant with
 one JSON manifest and one ZIP bundle.
 
-## SAC custom widgets
+## SAC custom widgets by area
 
-| Widget | Version | What it shows | Folder |
-|---|---|---|---|
-| **Variance KPI Tile** | 0.1.0 | Headline Actual with ▲/▼ variance vs Plan and Prior Year, plus a sparkline | [`SAC/Variance KPI Tile`](SAC/Variance%20KPI%20Tile) |
-| **Variance Bridge** | 0.1.0 | Plan → Actual waterfall by driver, with Top‑N + Other | [`SAC/Variance Bridge`](SAC/Variance%20Bridge) |
-| **Bullet Chart** | 0.1.0 | Actual vs Target with % of target bands and a Forecast marker | [`SAC/Bullet Chart`](SAC/Bullet%20Chart) |
-| **Variance Heatmap** | 0.1.0 | Row × column variance % with RAG or diverging colour and totals | [`SAC/Variance Heatmap`](SAC/Variance%20Heatmap) |
-| **Mine-to-Mill Sankey** | 0.1.0 | Tonnes flowing from pits through stockpiles, crusher and mill to concentrate, with grade | [`SAC/Mine-to-Mill Sankey`](SAC/Mine-to-Mill%20Sankey) |
-| **Grade-Tonnage Curve** | 0.1.0 | Tonnes and average grade above cut-off, with a cut-off read-out | [`SAC/Grade-Tonnage Curve`](SAC/Grade-Tonnage%20Curve) |
-| **Recovery vs Head Grade** | 0.1.0 | Plant recovery vs feed grade with fitted curve and target band | [`SAC/Recovery vs Head Grade`](SAC/Recovery%20vs%20Head%20Grade) |
-| **Metal Balance** | 0.1.0 | Stage metal balance with F1/F2/F3 reconciliation factors | [`SAC/Metal Balance`](SAC/Metal%20Balance) |
-| **OEE Time Usage** | 0.1.0 | Calendar → direct operating hours waterfall with A/U/E/OEE | [`SAC/OEE Time Usage`](SAC/OEE%20Time%20Usage) |
-| **Fleet Status Timeline** | 0.1.0 | Equipment status lanes across the shift with % operating | [`SAC/Fleet Status Timeline`](SAC/Fleet%20Status%20Timeline) |
-| **Cost Curve** | 0.1.0 | Industry cost curve with own assets, quartiles and price line | [`SAC/Cost Curve`](SAC/Cost%20Curve) |
-| **Safety Pyramid** | 0.1.0 | Incidents by severity with LTIFR / TRIFR | [`SAC/Safety Pyramid`](SAC/Safety%20Pyramid) |
-| **Calendar Heatmap** | 0.2.0 | Daily values on a calendar grid (Gregorian or 4‑4‑5 retail) | [`SAC/Calendar Heatmap`](SAC/Calendar%20Heatmap) |
-| **Order Flow Funnel** | 0.3.0 | Process‑flow funnel with stage conversion | [`SAC/Flow Diagram`](SAC/Flow%20Diagram) |
-| **Gantt Chart** | 0.1.1 | Timeline bars from start/end dates with swimlanes | [`SAC/ganttChart_1.json`](SAC/ganttChart_1.json) |
+23 widgets in five areas. Click an area for its gallery.
 
-Screenshots of every widget are in the [gallery](#widget-gallery) below, and each widget folder has its own README with its data
-model and properties.
+| Area | Widgets | Focus |
+|---|---|---|
+| **[EXCO](SAC/EXCO/README.md)** | 4 | Executive dashboards |
+| **[Finance](SAC/Finance/README.md)** | 4 | Financial reporting and analysis |
+| **[Mining](SAC/Mining/README.md)** | 8 | Mining operations |
+| **[Retail](SAC/Retail/README.md)** | 4 | Retail performance and merchandise planning |
+| **[General](SAC/General/README.md)** | 3 | Cross-industry visuals |
 
-## Widget gallery
+### EXCO
 
-### Variance KPI Tile
-![Variance KPI Tile](SAC/Variance%20KPI%20Tile/Example.png)
+Executive dashboards: headline KPIs, attainment, variance hot-spots and value-driver trees for board and EXCO packs.
 
-### Variance Bridge
-![Variance Bridge](SAC/Variance%20Bridge/Example.png)
+| Widget | What it shows | Folder |
+|---|---|---|
+| **Variance KPI Tile** | Headline Actual with ▲/▼ variance vs Plan and Prior Year, plus a sparkline | [`EXCO/Variance KPI Tile`](SAC/EXCO/Variance%20KPI%20Tile) |
+| **Bullet Chart** | Actual vs Target with % of target bands and a Forecast marker | [`EXCO/Bullet Chart`](SAC/EXCO/Bullet%20Chart) |
+| **Variance Heatmap** | Row × column variance % with RAG or diverging colour and totals | [`EXCO/Variance Heatmap`](SAC/EXCO/Variance%20Heatmap) |
+| **Driver Tree** | Value driver tree (e.g. ROCE → margin × turnover) with actual, plan and RAG per node | [`EXCO/Driver Tree`](SAC/EXCO/Driver%20Tree) |
 
-### Bullet Chart
-![Bullet Chart](SAC/Bullet%20Chart/Example.png)
+<p><a href="SAC/EXCO/Variance%20KPI%20Tile"><img src="SAC/EXCO/Variance%20KPI%20Tile/Example.png" width="31%" alt="Variance KPI Tile"/></a> <a href="SAC/EXCO/Bullet%20Chart"><img src="SAC/EXCO/Bullet%20Chart/Example.png" width="31%" alt="Bullet Chart"/></a> <a href="SAC/EXCO/Variance%20Heatmap"><img src="SAC/EXCO/Variance%20Heatmap/Example.png" width="31%" alt="Variance Heatmap"/></a> <a href="SAC/EXCO/Driver%20Tree"><img src="SAC/EXCO/Driver%20Tree/Example.png" width="31%" alt="Driver Tree"/></a></p>
 
-### Variance Heatmap
-![Variance Heatmap](SAC/Variance%20Heatmap/Example.png)
+### Finance
 
-### Mine-to-Mill Sankey
-![Mine-to-Mill Sankey](SAC/Mine-to-Mill%20Sankey/Example.png)
+Financial reporting and analysis: income statement, revenue bridges, working capital and variance analysis. Currency switch: ZAR / USD.
 
-### Grade-Tonnage Curve
-![Grade-Tonnage Curve](SAC/Grade-Tonnage%20Curve/Example.png)
+| Widget | What it shows | Folder |
+|---|---|---|
+| **P&L Waterfall** | Income statement from revenue to net profit with automatic sub-totals and % of revenue | [`Finance/PnL Waterfall`](SAC/Finance/PnL%20Waterfall) |
+| **Price-Volume-Mix Bridge** | Revenue bridge split into volume, mix, price and new/discontinued effects, with top product drivers | [`Finance/PVM Bridge`](SAC/Finance/PVM%20Bridge) |
+| **Ageing Buckets (AR/AP)** | Debtors / creditors ageing by customer or vendor with overdue tiles | [`Finance/Ageing Buckets`](SAC/Finance/Ageing%20Buckets) |
+| **Variance Bridge** | Plan → Actual waterfall by driver, with Top-N + Other | [`Finance/Variance Bridge`](SAC/Finance/Variance%20Bridge) |
 
-### Recovery vs Head Grade
-![Recovery vs Head Grade](SAC/Recovery%20vs%20Head%20Grade/Example.png)
+<p><a href="SAC/Finance/PnL%20Waterfall"><img src="SAC/Finance/PnL%20Waterfall/Example.png" width="31%" alt="PnL Waterfall"/></a> <a href="SAC/Finance/PVM%20Bridge"><img src="SAC/Finance/PVM%20Bridge/Example.png" width="31%" alt="PVM Bridge"/></a> <a href="SAC/Finance/Ageing%20Buckets"><img src="SAC/Finance/Ageing%20Buckets/Example.png" width="31%" alt="Ageing Buckets"/></a> <a href="SAC/Finance/Variance%20Bridge"><img src="SAC/Finance/Variance%20Bridge/Example.png" width="31%" alt="Variance Bridge"/></a></p>
 
-### Metal Balance
-![Metal Balance](SAC/Metal%20Balance/Example.png)
+### Mining
 
-### OEE Time Usage
-![OEE Time Usage](SAC/OEE%20Time%20Usage/Example.png)
+Mining operations: material flow, resources, plant performance, reconciliation, equipment, cost position and safety. Units default to copper (t, % Cu, US$/lb) and are configurable.
 
-### Fleet Status Timeline
-![Fleet Status Timeline](SAC/Fleet%20Status%20Timeline/Example.png)
+| Widget | What it shows | Folder |
+|---|---|---|
+| **Mine-to-Mill Sankey** | Tonnes from pits through stockpiles, crusher and mill to concentrate, with grade | [`Mining/Mine-to-Mill Sankey`](SAC/Mining/Mine-to-Mill%20Sankey) |
+| **Grade-Tonnage Curve** | Tonnes and average grade above cut-off, with a cut-off read-out | [`Mining/Grade-Tonnage Curve`](SAC/Mining/Grade-Tonnage%20Curve) |
+| **Recovery vs Head Grade** | Plant recovery vs feed grade with fitted curve and target band | [`Mining/Recovery vs Head Grade`](SAC/Mining/Recovery%20vs%20Head%20Grade) |
+| **Metal Balance & Reconciliation** | Stage metal balance with F1/F2/F3 reconciliation factors | [`Mining/Metal Balance`](SAC/Mining/Metal%20Balance) |
+| **OEE Time-Usage Waterfall** | Calendar → direct operating hours waterfall with A/U/E/OEE | [`Mining/OEE Time Usage`](SAC/Mining/OEE%20Time%20Usage) |
+| **Fleet Status Timeline** | Equipment status lanes across the shift with % operating | [`Mining/Fleet Status Timeline`](SAC/Mining/Fleet%20Status%20Timeline) |
+| **Cost Curve** | Industry cost curve with own assets, quartiles and price line | [`Mining/Cost Curve`](SAC/Mining/Cost%20Curve) |
+| **Safety Pyramid** | Incidents by severity with LTIFR / TRIFR | [`Mining/Safety Pyramid`](SAC/Mining/Safety%20Pyramid) |
 
-### Cost Curve
-![Cost Curve](SAC/Cost%20Curve/Example.png)
+<p><a href="SAC/Mining/Mine-to-Mill%20Sankey"><img src="SAC/Mining/Mine-to-Mill%20Sankey/Example.png" width="31%" alt="Mine-to-Mill Sankey"/></a> <a href="SAC/Mining/Grade-Tonnage%20Curve"><img src="SAC/Mining/Grade-Tonnage%20Curve/Example.png" width="31%" alt="Grade-Tonnage Curve"/></a> <a href="SAC/Mining/Recovery%20vs%20Head%20Grade"><img src="SAC/Mining/Recovery%20vs%20Head%20Grade/Example.png" width="31%" alt="Recovery vs Head Grade"/></a> <a href="SAC/Mining/Metal%20Balance"><img src="SAC/Mining/Metal%20Balance/Example.png" width="31%" alt="Metal Balance"/></a> <a href="SAC/Mining/OEE%20Time%20Usage"><img src="SAC/Mining/OEE%20Time%20Usage/Example.png" width="31%" alt="OEE Time Usage"/></a> <a href="SAC/Mining/Fleet%20Status%20Timeline"><img src="SAC/Mining/Fleet%20Status%20Timeline/Example.png" width="31%" alt="Fleet Status Timeline"/></a> <a href="SAC/Mining/Cost%20Curve"><img src="SAC/Mining/Cost%20Curve/Example.png" width="31%" alt="Cost Curve"/></a> <a href="SAC/Mining/Safety%20Pyramid"><img src="SAC/Mining/Safety%20Pyramid/Example.png" width="31%" alt="Safety Pyramid"/></a></p>
 
-### Safety Pyramid
-![Safety Pyramid](SAC/Safety%20Pyramid/Example.png)
+### Retail
 
-### Calendar Heatmap
-![Calendar Heatmap](SAC/Calendar%20Heatmap/Example.png)
+Retail performance and merchandise planning: store productivity, range classification, stock health and season sell-through. Currency switch: ZAR / USD.
 
-### Order Flow Funnel
-![Order Flow Funnel](SAC/Flow%20Diagram/Example.png)
+| Widget | What it shows | Folder |
+|---|---|---|
+| **Store Performance Quadrant** | Stores on two KPIs (e.g. sales/m² vs margin %) in four labelled quadrants, bubble = revenue | [`Retail/Store Quadrant`](SAC/Retail/Store%20Quadrant) |
+| **ABC/XYZ Matrix** | Revenue contribution × demand variability 3×3 matrix with stock policy hints | [`Retail/ABC-XYZ Matrix`](SAC/Retail/ABC-XYZ%20Matrix) |
+| **Weeks of Cover** | Weeks of cover vs target band, with stock value, OOS % and aged stock % | [`Retail/Weeks of Cover`](SAC/Retail/Weeks%20of%20Cover) |
+| **Sell-through Curve** | Cumulative sell-through % by week since launch vs plan and target | [`Retail/Sell-through Curve`](SAC/Retail/Sell-through%20Curve) |
 
-### Gantt Chart
-![Gantt Chart](SAC/ganttChart_Example.png)
+<p><a href="SAC/Retail/Store%20Quadrant"><img src="SAC/Retail/Store%20Quadrant/Example.png" width="31%" alt="Store Quadrant"/></a> <a href="SAC/Retail/ABC-XYZ%20Matrix"><img src="SAC/Retail/ABC-XYZ%20Matrix/Example.png" width="31%" alt="ABC-XYZ Matrix"/></a> <a href="SAC/Retail/Weeks%20of%20Cover"><img src="SAC/Retail/Weeks%20of%20Cover/Example.png" width="31%" alt="Weeks of Cover"/></a> <a href="SAC/Retail/Sell-through%20Curve"><img src="SAC/Retail/Sell-through%20Curve/Example.png" width="31%" alt="Sell-through Curve"/></a></p>
 
-## Widget packs
+### General
 
-### Variance pack
+Cross-industry visuals: calendars, process funnels and project timelines.
 
-The four variance widgets are built to be used together on management dashboards, and they share
-the same conventions:
+| Widget | What it shows | Folder |
+|---|---|---|
+| **Calendar Heatmap** | Daily values on a calendar grid (Gregorian or 4-4-5 retail) | [`General/Calendar Heatmap`](SAC/General/Calendar%20Heatmap) |
+| **Order Flow Funnel** | Process-flow funnel with stage conversion | [`General/Order Flow Funnel`](SAC/General/Order%20Flow%20Funnel) |
+| **Gantt Chart** | Timeline bars from start/end dates with swimlanes | [`General/Gantt Chart`](SAC/General/Gantt%20Chart) |
 
-- **Measures are bound in order, with Actual first**, followed by Plan/Target, then Prior Year or Forecast.
-- **`invertSign`** is for cost measures: when it is on, coming in under plan shows green.
-- The **number format** is the same in all four: `valueScale` (auto/K/M/B), `decimals`, `prefix`, `suffix`.
-- Hierarchy **total nodes are skipped**, so totals are not counted twice.
+<p><a href="SAC/General/Calendar%20Heatmap"><img src="SAC/General/Calendar%20Heatmap/Example.png" width="31%" alt="Calendar Heatmap"/></a> <a href="SAC/General/Order%20Flow%20Funnel"><img src="SAC/General/Order%20Flow%20Funnel/Example.png" width="31%" alt="Order Flow Funnel"/></a> <a href="SAC/General/Gantt%20Chart"><img src="SAC/General/Gantt%20Chart/Example.png" width="31%" alt="Gantt Chart"/></a></p>
 
-### Mining pack
+## Conventions
 
-Eight widgets for mining operations dashboards, covering production, processing, reconciliation,
-equipment, cost and safety. Units default to copper (t, % Cu, US$/lb), and grade unit, metal
-factor and cost formatting can all be changed in the Styling panel (e.g. `g/t Au`). The
-Fleet Status Timeline uses **named feeds** (Equipment, Status, Start, End); the others bind
-dimensions and measures **in order**, and each widget's README gives the exact order.
+- **Bind in order.** Unless a widget uses named feeds (Fleet Status Timeline, Gantt Chart), dimensions and
+  measures are read in binding order (e.g. Actual first, then Plan). Each widget README gives the exact order.
+- **Currency.** The P&L Waterfall, PVM Bridge, Ageing Buckets, Driver Tree and Retail widgets have a `currency`
+  switch: `ZAR` (R), `USD` ($) or `custom`. The variance widgets take a `prefix` (e.g. `R` or `$`). Both change
+  the symbol only (no FX conversion), so bind the reporting-currency measure for the currency you show.
+- **Cost measures.** `invertSign` / `lowerIsBetter` make under-plan favourable for cost-type measures.
+- **Totals.** Hierarchy total nodes are skipped, so values aren't double-counted.
+- **Mining units** default to copper (t, % Cu, US$/lb) and are configurable (e.g. `g/t Au`).
 
 ## Install a widget in SAC
 
@@ -112,7 +113,7 @@ All widgets have `supportsExport: true`, so they appear in PDF/PPT exports.
 ## Folder layout
 
 ```
-SAC/<Widget>/
+SAC/<Area>/<Widget>/        Area = EXCO | Finance | Mining | Retail | General
   <name>.json          manifest (upload to SAC)
   <name>.zip           JS bundle (upload to SAC)
   <name>.js            main web component (renderer inlined)
