@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "Data Co",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dataco.sac.fleetstatustimeline",
   "version": "0.1.0",
   "name": "Fleet Status Timeline",
@@ -17,14 +17,14 @@
       "kind": "main",
       "tag": "com-dataco-sac-fleetstatustimeline",
       "url": "/fleetStatusTimeline.js",
-      "integrity": "sha256-9BygrJBcM61P4hwjU4PIXoHMvZyphZupoXRNX0zqP4o=",
+      "integrity": "sha256-lZbd06vrAC/77aVmjC1aUfvBEpIZI/7qqNc5ExihfHo=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dataco-sac-fleetstatustimeline-styling",
       "url": "/fleetStatusTimelineStyling.js",
-      "integrity": "sha256-4QYHg4oodvvsM3qSft/Cbd2NJHmDhvNmEhFTZRJbP0M=",
+      "integrity": "sha256-Nv1Lm/2ZhJdamM/qj18zmypfah1aw4kk11R+qB6ZbBU=",
       "ignoreIntegrity": true
     }
   ],

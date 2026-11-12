@@ -1,3 +1,9 @@
+/*!
+ * Fleet Status Timeline — renderer
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* =============================================================================
  * Fleet Status Timeline — canonical renderer (v0.1)
  * One lane per equipment unit (truck, shovel, drill…), coloured segments per
