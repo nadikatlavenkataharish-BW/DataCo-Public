@@ -1,0 +1,145 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "DataVizCo",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dvc.sac.ganttchart",
+  "version": "0.1.1",
+  "name": "Gantt Chart",
+  "newInstancePrefix": "GanttChart",
+  "description": "Timeline Gantt: one bar per item from a start and end date, optional group swimlanes, categorical colour, a value label per bar, and a day/week/month axis with a 'today' rule.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAA0UlEQVR4nO3XsQ3CMBRF0Q9tFmAUdoAyNXMgUSMxB3VK2IFRWIAaeiQUG8W+EN9TW/nPr/FPhCRJkiSpPYucw9v97VkqyCeX0zorY65l6kHi8jXmJhcwVxZAB6BZAB2AZgF0AFpyAaUXkl+bK0lqQZEnpj9vkF/niIhhd8260+SLEHn5b+a7CdIBaBZAB6BZAB2AZgFTfzB3EZnbfEnSP0l6Mh7HVfFf3O5wR56v0T2gxuVrznnnJkgHoFkAHYBmAXQAmgWMHai1oFCLkCRJatcL9tMkOvx0H3QAAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dvc-sac-ganttchart",
+      "url": "/ganttChart.js",
+      "integrity": "sha256-m3JdyiryNNqa31XW2szh97tgh+XuUf83l9VySzoSRno=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dvc-sac-ganttchart-styling",
+      "url": "/ganttChartStyling.js",
+      "integrity": "sha256-sSiJNEOQo+zj+G7BE9VxcxOj1xZ6jo/G3Sx759eU/t0=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "width": {
+      "type": "integer",
+      "default": 1000
+    },
+    "height": {
+      "type": "integer",
+      "default": 460
+    },
+    "title": {
+      "type": "string",
+      "default": "Project Timeline"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Tasks by date"
+    },
+    "labelWidth": {
+      "type": "integer",
+      "default": 172
+    },
+    "view": {
+      "type": "string",
+      "default": "week"
+    },
+    "weekStart": {
+      "type": "string",
+      "default": "monday"
+    },
+    "showToday": {
+      "type": "boolean",
+      "default": true
+    },
+    "todayColor": {
+      "type": "string",
+      "default": "#E24C7B"
+    },
+    "barColor": {
+      "type": "string",
+      "default": "#4C78C8"
+    },
+    "barHeight": {
+      "type": "integer",
+      "default": 16
+    },
+    "showValueLabels": {
+      "type": "boolean",
+      "default": true
+    },
+    "sortBy": {
+      "type": "string",
+      "default": "start"
+    },
+    "showLegend": {
+      "type": "boolean",
+      "default": true
+    },
+    "decimalSeparator": {
+      "type": "string",
+      "default": ","
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "label",
+          "description": "Task label",
+          "type": "dimension"
+        },
+        {
+          "id": "startDate",
+          "description": "Start date",
+          "type": "dimension"
+        },
+        {
+          "id": "endDate",
+          "description": "End date",
+          "type": "dimension"
+        },
+        {
+          "id": "groupDim",
+          "description": "Group (optional)",
+          "type": "dimension"
+        },
+        {
+          "id": "colorDim",
+          "description": "Colour (optional)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Bar value (optional)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
