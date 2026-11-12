@@ -1,0 +1,121 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.ageingbuckets",
+  "version": "0.1.0",
+  "name": "Ageing Buckets (AR/AP)",
+  "newInstancePrefix": "AgeingBuckets",
+  "description": "Debtors / creditors ageing: stacked bars per customer or vendor across ageing buckets, Top-N + Other, with total, overdue and oldest-bucket tiles. ZAR / USD.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABUElEQVR4Xu2bsQ3CMBREA2IK2IIhWIOGCWAI5mCN1DQMQQtNdgClSGQSf+fbUiRyd69EFtK9f7H0I6gqwc3KE397PHw85/6N162ezJc8sNTgQ1Ii1tbUUMK3pLJEBSCF77AyjQQghk9J+BGAHN6SYN4BLPQCGKYfa4EawFJ1Cwlgb8DGK+B8PXmPuri8765z1bOJn2v2o893j9r3nQH0DZCA7M6AIQFgA81GArKVgUEvoH8nyLQNtnTvCekbIAFgd1o29AJm2wbd294Qa/vriGyBFp7tkL4BEmD2hwQJIBm0iQSoAeRoGyQvgC5BNYD9EZhtGyzF3CKHW2KwFXq2Pgv6BkhAaVVRkACUSZYiAaXmUKAXoG0QpcqlSECpORR6AZ4/GKEQZlUDwqkytGCYcdQAZAmxbNFHAFGClcm8A5AkpLJM/rW0Zam/IEMaopiLL1TCWHk5HAnFAAAAAElFTkSuQmCC",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-ageingbuckets",
+      "url": "/ageingBuckets.js",
+      "integrity": "sha256-QQ+aFz/tzuzDrb1sf8e2mZptUjyfVQkRynjFrAHwo3U=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-ageingbuckets-styling",
+      "url": "/ageingBucketsStyling.js",
+      "integrity": "sha256-D5gaQgC9xsv1bWEm29QBwH1D0h1NYVmBJBWMSQSvaIQ=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Debtors Ageing"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Outstanding balance by days overdue"
+    },
+    "topN": {
+      "type": "integer",
+      "default": 10
+    },
+    "sortBy": {
+      "type": "string",
+      "default": "overdue"
+    },
+    "currentBuckets": {
+      "type": "integer",
+      "default": 1
+    },
+    "showTiles": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPct": {
+      "type": "boolean",
+      "default": true
+    },
+    "currency": {
+      "type": "string",
+      "default": "ZAR"
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": ""
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "bucketColors": {
+      "type": "string",
+      "default": "#1A9850,#A6D96A,#FEE08B,#FDAE61,#F46D43,#D73027"
+    },
+    "width": {
+      "type": "integer",
+      "default": 960
+    },
+    "height": {
+      "type": "integer",
+      "default": 460
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Customer / vendor",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Ageing buckets in order, current first (e.g. Current, 1-30, 31-60, 61-90, 90+)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
