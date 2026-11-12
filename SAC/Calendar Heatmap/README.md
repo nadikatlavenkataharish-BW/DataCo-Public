@@ -90,3 +90,9 @@ reference; if you want the faceted look, that's a separate layout variant.
 This is the **second reference widget** proving the scaffold generalises across very
 different geometries. Both widgets share the same lifecycle plumbing, styling-panel
 pattern, and build/QA loop — the basis for the reusable Skill.
+
+## Licence
+
+Proprietary. Copyright © 2026 The Data Co (Pty) Ltd. All rights reserved. This widget may be installed
+and used only under a written licence or services agreement with The Data Co; copying, modification and
+redistribution are prohibited. See the repository [LICENSE](../../LICENSE).

@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "Data Co",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dataco.sac.calendarheatmap",
   "version": "0.2.0",
   "name": "Calendar Heatmap",
@@ -17,14 +17,14 @@
       "kind": "main",
       "tag": "com-dataco-sac-calendarheatmap",
       "url": "/calendarHeatmap.js",
-      "integrity": "sha256-znTedElkfHF/ZS9RFhZpysz8Rjpx3JzT1rPrYs9/MU0=",
+      "integrity": "sha256-DiNJAqjkYQF5F/mDBbqMpPrsPP4zgkYnxsm83tU0f1c=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dataco-sac-calendarheatmap-styling",
       "url": "/calendarHeatmapStyling.js",
-      "integrity": "sha256-ZHjnpYTVx6v1h9I7F3mi1FbyCyh0rh0NOUnho/IA5yM=",
+      "integrity": "sha256-C24mvs0Qrhx7/gCqaUMluxDprteEkSD93QSTj/1+RgU=",
       "ignoreIntegrity": true
     }
   ],
