@@ -1,0 +1,137 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.drivertree",
+  "version": "0.1.0",
+  "name": "Driver Tree",
+  "newInstancePrefix": "DriverTree",
+  "description": "Value driver tree (e.g. ROCE → margin × asset turnover → …) with actual, plan and RAG variance per node; per-node formats and lower-is-better drivers. ZAR / USD.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAB5UlEQVR4Xu2bu1EDMRCGDUMT1IEbwCHEDhgSeqAOenDCEDiG0DQAdVAGjJiRRr7Ta3a1j9vTF58f/7//rnSvzWawbi5a5N/c3v22HKeN78+Pqr7iAUsVPqVkxGWualbEO0pakgZYEu/JaZoZYFF8yYQzAyyLz5lwpW1yQ/k6vVc/ut3dz44JCVhD9VMpyK4Ca2EYYKHSLf2fw4QBGMRXgYfXJ/D/f3s8/FffTXdoCsQN6EVqiWth0S3gq49h0Qb0QNQAaN86nq/34NjHiBmAEe94+Tmiv8Ox6CHop3/rKlA8F+AEW/2esLdALB66dMW0Vj8HawukxLvNDBaMCewJcPSofC/YDNDU9+zLYO++7wnrDKCMPvS7qwZgoosZTlyQzgDN0feQGuCBxpMDcgM0i3eQG6AdcgMwQ5QDcgO0w2KA5hSQGhAPQK0mhCdEKO8NatwP+KdGSBMw9gEJtLUCSwKm1wA0mcBmgLYLIZ7q2SAV4Z7efgf+ie3xBP4s68lQjLalkbUFNK4KIgZomgdiBmhB1AAN1wpEDdDAMEBDFSQR2wiFJbHDZgbD6hMwDMDExwLBgJYXjKwQax0JiKu6hhRMNc4SYNmElLZkC1g0IacpOwMsmVDSUn211EF5z4ASS0UcUPEHJ8uaSLQ3l/8AAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-drivertree",
+      "url": "/driverTree.js",
+      "integrity": "sha256-vqW1o2NmyXiXFCpobsoAGTQ6nfUr1UPP8xwZcedwk5s=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-drivertree-styling",
+      "url": "/driverTreeStyling.js",
+      "integrity": "sha256-IrwSwe5wyNE6gLLstFnbMAzRWU1v0uOZpYdLnDJ6yvQ=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Value Driver Tree"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Actual vs plan by driver"
+    },
+    "nodeFormats": {
+      "type": "string",
+      "default": ""
+    },
+    "lowerIsBetter": {
+      "type": "string",
+      "default": ""
+    },
+    "tolerance": {
+      "type": "integer",
+      "default": 2
+    },
+    "warnTolerance": {
+      "type": "integer",
+      "default": 5
+    },
+    "nodeWidth": {
+      "type": "integer",
+      "default": 170
+    },
+    "nodeHeight": {
+      "type": "integer",
+      "default": 62
+    },
+    "currency": {
+      "type": "string",
+      "default": "ZAR"
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": ""
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "goodColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "amberColor": {
+      "type": "string",
+      "default": "#E0A100"
+    },
+    "badColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "lineColor": {
+      "type": "string",
+      "default": "#C4CDD5"
+    },
+    "width": {
+      "type": "integer",
+      "default": 1100
+    },
+    "height": {
+      "type": "integer",
+      "default": 520
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Dimensions in order: 1 Node (driver), 2 Parent node (blank / # for the root)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Actual, 2 Plan",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!-- Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved. PROPRIETARY AND CONFIDENTIAL. See LICENSE. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Driver Tree — preview</title>
+<style>
+  :root { --ink:#33414A; --muted:#8794A0; --line:#E3E8ED; --bg:#F7F9FB; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:'72',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  .wrap { max-width:1200px; margin:0 auto; padding:24px 20px 56px; }
+  h1 { margin:0 0 2px; font-size:20px; }
+  p.sub { margin:0 0 16px; color:var(--muted); font-size:13px; }
+  .bar { display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; background:#fff;
+         border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-bottom:16px; }
+  .bar label { font-size:13px; display:flex; align-items:center; gap:6px; }
+  .bar input[type=number]{ width:70px; }
+  select, input { font:inherit; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px; overflow:auto; }
+  #chart { width:100%; height:520px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Driver Tree — preview</h1>
+  <p class="sub">Same renderer the SAC widget uses, with synthetic data. Tweak the options and it re-renders.</p>
+  <div class="bar"><label>Green within (%) <input type="number" step="any" data-k="tolerance" value="2"/></label><label>Amber within (%) <input type="number" step="any" data-k="warnTolerance" value="5"/></label><label>Node width (px) <input type="number" step="1" data-k="nodeWidth" value="170"/></label><label>Node height (px) <input type="number" step="1" data-k="nodeHeight" value="62"/></label><label>Currency <select data-k="currency"><option value="ZAR" selected>ZAR</option><option value="USD">USD</option><option value="custom">custom</option></select></label><label>Number scale <select data-k="valueScale"><option value="auto" selected>auto</option><option value="none">none</option><option value="K">K</option><option value="M">M</option><option value="B">B</option></select></label><label>Decimals <input type="number" step="1" data-k="decimals" value="1"/></label></div>
+  <div class="card"><div id="chart"></div></div>
+</div>
+<script src="renderer.core.js"></script>
+<script>
+
+var N=[["ROCE","",0.172,0.185],["EBIT margin","ROCE",0.118,0.125],["Capital turnover","ROCE",1.46,1.48],
+["Revenue","EBIT margin",482e6,495e6],["Operating costs","EBIT margin",425e6,433e6],["Capital employed","Capital turnover",330e6,334e6],
+["Gross margin","Revenue",193e6,201e6],["Volume (units m)","Revenue",38.2,39.0],["Employee costs","Operating costs",64e6,61e6],["Other opex","Operating costs",51.5e6,52e6],
+["Working capital","Capital employed",88e6,84e6],["Fixed assets","Capital employed",242e6,250e6]];
+function sample(){ return {nodes:N.map(function(n){return {id:n[0],parent:n[1],actual:n[2],plan:n[3]};})}; }
+var opts = {"nodeFormats": "ROCE:pct,EBIT margin:pct,Capital turnover:ratio,Volume (units m):number", "lowerIsBetter": "Operating costs,Employee costs,Other opex,Working capital,Capital employed"};
+function draw(){
+  var el=document.getElementById("chart");
+  var o=Object.assign({}, opts, {width: el.clientWidth, height: el.clientHeight});
+  el.innerHTML = buildDriverTreeSVG(sample(o), o);
+}
+document.querySelectorAll("[data-k]").forEach(function(el){
+  function read(){ var k=el.dataset.k; opts[k] = el.type==="checkbox" ? el.checked : (el.type==="number" ? Number(el.value) : el.value); }
+  read(); el.addEventListener("change", function(){ read(); draw(); });
+});
+window.addEventListener("resize", draw); draw();
+</script>
+</body>
+</html>
