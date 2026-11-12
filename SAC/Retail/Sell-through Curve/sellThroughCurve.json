@@ -1,0 +1,105 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.sellthroughcurve",
+  "version": "0.1.0",
+  "name": "Sell-through Curve",
+  "newInstancePrefix": "SellThroughCurve",
+  "description": "Cumulative sell-through % by week since launch per season or collection against a planned curve and end-of-life target.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAB7klEQVR4Xu2bTU4DMQxGC+JCcBzY9AKFBedgQy/QDT3OcCRQKqWaSWLH+bc9eTukLvo+f07TojkcJvvmgaL//br8UV7HjffrS9QPfYFUcRcsiEdoalrkDZhLMABN8hbIyQtAozwWwiYAzfJQCOAZsBfuAexh+qEWzAbspeoQM4DZgJ2jvgGnn2d0xE8aCxCTXqMmgBRpNQFg0ue3X1K5RTUgNmWqtMgGQPI50qICaCVuYb0CIfnSibuwDKD11FmvQI+pr2FzEzTiLeRPnxev9uwaUFs8Js0mgJq7niLNIoAaU8ekz19HtPpDPwZL5GtID21ArjwkTp00RNd7QI58SLxUekgDUuVbi3c9A1Lke4l3C4Aq31u8SwAx+VYHWwrNDsEc+ZqHG5Um3wWkyBuqNwCT51B5l6oNkCZftQGp8iP2PUSVBkiVNxQHIFm+6gpYzI+WHA87iKIGuNOXJl/UgFD1R11nS8hqQPCnrOXDex9cTnqM5IuQJx8QN0iQT14BirwUcQu5ARt54VNfQw7gjtBdhyAFcJu+oqknNQCSl7brWQ24fa4v/v/WtMhHvwu4ouZvTfKbAKDnaqywJvG1K+kmqEneZRMA5TEz6biOXgM0hxByC66AxhAgJ/AM0BQC5hJ9tNQg9XkiTUOctOIfTjLtazfPkSsAAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-sellthroughcurve",
+      "url": "/sellThroughCurve.js",
+      "integrity": "sha256-gODyQjTY/clJiYLhqmRwFa6/5HTw6yB42gwA8ppzFHI=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-sellthroughcurve-styling",
+      "url": "/sellThroughCurveStyling.js",
+      "integrity": "sha256-zQI32DJszrNMOHzUAwNiCycpuIY/MWVsSEvQugrq8zc=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Sell-through"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Cumulative sell-through % by week since launch"
+    },
+    "planCurve": {
+      "type": "string",
+      "default": ""
+    },
+    "targetST": {
+      "type": "integer",
+      "default": 70
+    },
+    "targetWeek": {
+      "type": "integer",
+      "default": 0
+    },
+    "showEndLabels": {
+      "type": "boolean",
+      "default": true
+    },
+    "palette": {
+      "type": "string",
+      "default": "#0A6ED1,#E9730C,#1A9850,#925ACE,#C87B00,#0F828F,#D04343,#5B738B"
+    },
+    "planColor": {
+      "type": "string",
+      "default": "#33414A"
+    },
+    "width": {
+      "type": "integer",
+      "default": 900
+    },
+    "height": {
+      "type": "integer",
+      "default": 440
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Dimensions in order: 1 Season / collection, 2 Week since launch (numeric)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Units sold (weekly), 2 Units bought (receipts), 3 Planned cumulative ST % (optional)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
