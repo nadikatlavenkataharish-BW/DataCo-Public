@@ -1,0 +1,133 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.abcxyzmatrix",
+  "version": "0.1.0",
+  "name": "ABC/XYZ Matrix",
+  "newInstancePrefix": "AbcXyzMatrix",
+  "description": "ABC (revenue contribution) × XYZ (demand variability) 3×3 matrix with SKU counts, revenue share, suggested stock policy per cell and an AZ watch-list. ZAR / USD.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAB00lEQVR4Xu2bIUsEURRGV/F/WK1rt1rtbhIEk4pBDGISgxhENwmCae1Wq92tVn+J8sLIfW/nzZwLCu439+T5wnfu7Az3sTMaBcNmhdS/333/Itf9N46eN3v7dV6wrMVLukSs1qamUj7R1aVVgFL5hlqnBQGK5bskZAKUy9ckVJ8BQ+HnLdA3/fWTscvJ5+08u37jzJf/uM7z4wtffn6Z52tvBnQHeMsnbMZbPmEz3vIJmkEClAkBytMlhABiSZkQoDxdQggglpQJAcrTJSAB5WJDsJlysSHYTN9i0wbN4G1QjeacEN0ByqzRcltXvn387Tzfx7dvfPnX0zy/c+fLvxx3nwc0oDvAWz5hM97yCZvxlk/QDBKgTAhQni4hBBBLyoQA5ekSQgCxpEwIUJ4uAQkoFxuCzZSLDcFm6GJjoZk4DyDTUAafB0wefPv47CDfx/effPnHvTx/OPPlp5NfPA/wlk/YjLd8wma85RM0M/ifQAhQfsARQgCxpEwIUJ4uIQQQS8qEAOXpEpCAcrEh2Ey52BBshi42FprJvhnq+8e4CvYbInQHKJMJIJ+ZLTtlx4U7QFlCW7fWn4CihFqn6jNASUJXl95PSxPL+nZQGmLwV3wDUquNdryr0r0AAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-abcxyzmatrix",
+      "url": "/abcXyzMatrix.js",
+      "integrity": "sha256-dYStaa3jj/i9fZPIcZl1zT3oU+IQqDPiV0SCRyNDRng=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-abcxyzmatrix-styling",
+      "url": "/abcXyzMatrixStyling.js",
+      "integrity": "sha256-h3KTvmSvdV9iodhISLEpehhQrRHeD6G6biS+xmuSx0s=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "ABC / XYZ Matrix"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Revenue contribution × demand variability"
+    },
+    "aCut": {
+      "type": "integer",
+      "default": 80
+    },
+    "bCut": {
+      "type": "integer",
+      "default": 95
+    },
+    "xCut": {
+      "type": "number",
+      "default": 0.5
+    },
+    "yCut": {
+      "type": "integer",
+      "default": 1
+    },
+    "showActions": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTopSkus": {
+      "type": "boolean",
+      "default": true
+    },
+    "actions": {
+      "type": "string",
+      "default": "Auto-replenish,Safety stock,Make to order,Auto-replenish,Review buffer,Order on demand,Automate / bulk,Periodic review,Delist candidate"
+    },
+    "currency": {
+      "type": "string",
+      "default": "ZAR"
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": ""
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "hiColor": {
+      "type": "string",
+      "default": "#0A6ED1"
+    },
+    "loColor": {
+      "type": "string",
+      "default": "#EEF4FB"
+    },
+    "width": {
+      "type": "integer",
+      "default": 900
+    },
+    "height": {
+      "type": "integer",
+      "default": 480
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Dimensions in order: 1 SKU / article, 2 Period (week or month, for variability)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Revenue, 2 Demand units (optional — else revenue is used for variability)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
