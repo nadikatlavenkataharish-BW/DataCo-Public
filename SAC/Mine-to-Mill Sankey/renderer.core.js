@@ -1,3 +1,9 @@
+/*!
+ * Mine-to-Mill Sankey — renderer
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* =============================================================================
  * Mine-to-Mill Sankey — canonical renderer (v0.1)
  * Material flow from sources (pits / stopes) through stockpiles, crusher, mill

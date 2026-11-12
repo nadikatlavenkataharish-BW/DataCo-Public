@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "Data Co",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dataco.sac.minetomillsankey",
   "version": "0.1.0",
   "name": "Mine-to-Mill Sankey",
@@ -17,14 +17,14 @@
       "kind": "main",
       "tag": "com-dataco-sac-minetomillsankey",
       "url": "/mineToMillSankey.js",
-      "integrity": "sha256-LrZgHT3UxM/6WAAIUp3MOiHcdOST7qxI0+ciFp28SG4=",
+      "integrity": "sha256-9GQEKOUQ9uGLmO9nUQMVGbQPgQzamyc4P+XGdhRoqn8=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dataco-sac-minetomillsankey-styling",
       "url": "/mineToMillSankeyStyling.js",
-      "integrity": "sha256-gUhqwO7GP1eizyvWpstfE/4L7ynxgdNLclCkCuxe00o=",
+      "integrity": "sha256-maDuDd5jxdiv/dj909ggyWafWiivNJF/qv2C5mqwWfo=",
       "ignoreIntegrity": true
     }
   ],

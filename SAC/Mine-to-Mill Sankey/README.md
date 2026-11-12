@@ -48,3 +48,9 @@ and `mineToMillSankey.zip` (ZIP slot), then insert the widget and bind the feeds
 | colour properties | | All exposed in the Styling panel. |
 
 Sample data in `preview.html` and `Example.png` is synthetic.
+
+## Licence
+
+Proprietary. Copyright © 2026 The Data Co (Pty) Ltd. All rights reserved. This widget may be installed
+and used only under a written licence or services agreement with The Data Co; copying, modification and
+redistribution are prohibited. See the repository [LICENSE](../../LICENSE).
