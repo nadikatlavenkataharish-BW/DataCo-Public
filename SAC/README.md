@@ -27,3 +27,7 @@ Currently available.
 
 6. Variance Heatmap
 ![Variance Heatmap Example](Variance%20Heatmap/Example.png)
+
+
+7. Gantt Chart
+![Gantt Example](ganttChart_Example.png)
