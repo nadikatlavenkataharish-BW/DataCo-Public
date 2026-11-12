@@ -1,0 +1,153 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.varianceheatmap",
+  "version": "0.1.0",
+  "name": "Variance Heatmap",
+  "newInstancePrefix": "VarianceHeatmap",
+  "description": "Row × column heatmap coloured by variance % (or abs) vs plan with continuous or RAG thresholds, row/column totals; falls back to a value heatmap with one measure.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABxElEQVR4Xu2bMVLDMBBFA0MFB4EKTsEhuERoqVJQpSWX4BCcAio4CLQw8kSO4lja58yYUb72tdnmv5U8fzzOYuG0zRmJf7l8/yVztfGzuTPzFQdONfiQkojz3NZUwgdKWUYFKIWP5DIdCFAMX5KwJ0A5fE5C9hnQCr2AFrY/dgoupmz6+emrOL5aX/e/f7/cFmevHj92szdv5dnP+93s8rU8u3ko/j4EXwErfCDOWOEDccYK381uBVnhu1lD0NECVMEnQBUXoLpZigugplRxAXSzacnJEWfSkpMjzqQlJzu7LUKk5JCZlP6FSEtVOBBfkkyqwlbLSu1bzfE/ajMBXwErfFpDrfCBuWszBQtQxQWobpbiAqgpVVyA6mYpWACpmHGmhtpM8SpMTXVNb6a3t1ZzPLY2E/AVsMKngmqozRQsQBUXoLpZigugplRxAaqbpWABc729nas2U7wKU1Nd06vgo4cptZmAr4AVPhVUQ22mYAGquADVzVJcADWligtQ3SwFC6jho4cptZnSfBXGJ0CVXgD5g5EKaVY/AelWWzgFw4wHJ0BZwli20SugKCGXKfsMUJJQymL+tTRwqh9RKi3RmYs/dGLUepy9hYAAAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-varianceheatmap",
+      "url": "/varianceHeatmap.js",
+      "integrity": "sha256-/R6V1nXB1jXm5kzb5uVP/PhHlh8p6SCuj5KMEixf3Tw=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-varianceheatmap-styling",
+      "url": "/varianceHeatmapStyling.js",
+      "integrity": "sha256-D7mW//6vFYyDd6lt0CgOFEkNKV49mtt4OhD+G5IjM6M=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Variance Heatmap"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Variance % vs plan"
+    },
+    "mode": {
+      "type": "string",
+      "default": "variancePct"
+    },
+    "colorMode": {
+      "type": "string",
+      "default": "continuous"
+    },
+    "thresholdBad": {
+      "type": "integer",
+      "default": -5
+    },
+    "thresholdGood": {
+      "type": "integer",
+      "default": 5
+    },
+    "invertSign": {
+      "type": "boolean",
+      "default": false
+    },
+    "showValues": {
+      "type": "boolean",
+      "default": true
+    },
+    "showTotals": {
+      "type": "boolean",
+      "default": true
+    },
+    "cellHeight": {
+      "type": "integer",
+      "default": 30
+    },
+    "labelWidth": {
+      "type": "integer",
+      "default": 130
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "prefix": {
+      "type": "string",
+      "default": ""
+    },
+    "suffix": {
+      "type": "string",
+      "default": ""
+    },
+    "goodColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "midColor": {
+      "type": "string",
+      "default": "#F7F7F2"
+    },
+    "badColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "amberColor": {
+      "type": "string",
+      "default": "#F4C542"
+    },
+    "emptyColor": {
+      "type": "string",
+      "default": "#EEF1F4"
+    },
+    "width": {
+      "type": "integer",
+      "default": 900
+    },
+    "height": {
+      "type": "integer",
+      "default": 400
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Dimensions in order: 1 Rows (e.g. Site), 2 Columns (e.g. Period)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Actual, 2 Plan (optional — without it, values are shown)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
