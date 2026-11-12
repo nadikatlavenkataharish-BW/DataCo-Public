@@ -1,3 +1,9 @@
+/*!
+ * Grade-Tonnage Curve — renderer
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* =============================================================================
  * Grade–Tonnage Curve — canonical renderer (v0.1)
  * From grade bins (block-model grade classes): tonnes above cut-off (left axis)

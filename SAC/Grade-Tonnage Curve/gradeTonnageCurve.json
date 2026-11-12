@@ -1,7 +1,7 @@
 {
-  "eula": "",
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
   "vendor": "Data Co",
-  "license": "",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
   "id": "com.dataco.sac.gradetonnagecurve",
   "version": "0.1.0",
   "name": "Grade-Tonnage Curve",
@@ -17,14 +17,14 @@
       "kind": "main",
       "tag": "com-dataco-sac-gradetonnagecurve",
       "url": "/gradeTonnageCurve.js",
-      "integrity": "sha256-hiIsLbg3lGEEr5rYKxFbLVNld7LQ2x8gbvbEqwPMS+Y=",
+      "integrity": "sha256-JVOOcmpd//I4G0Dq09UTJnKRQGReklZHVnLtW750ijU=",
       "ignoreIntegrity": true
     },
     {
       "kind": "styling",
       "tag": "com-dataco-sac-gradetonnagecurve-styling",
       "url": "/gradeTonnageCurveStyling.js",
-      "integrity": "sha256-HN8U4H5KzBQV6u2Gd7W4GmFwSfjtOS7yOfzwQjev9FM=",
+      "integrity": "sha256-9K9xU03XzcJCz/nGMJhdsRNNRM9k+xAH9GZq5h8OIec=",
       "ignoreIntegrity": true
     }
   ],
