@@ -1,3 +1,9 @@
+/*!
+ * Bullet Chart — renderer
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* =============================================================================
  * Bullet Chart — canonical renderer (v0.1)
  * One row per member: qualitative bands (% of target), Actual bar, Target tick,
