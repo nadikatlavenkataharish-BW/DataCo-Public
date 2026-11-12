@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!-- Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved. PROPRIETARY AND CONFIDENTIAL. See LICENSE. -->
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Price-Volume-Mix Bridge — preview</title>
+<style>
+  :root { --ink:#33414A; --muted:#8794A0; --line:#E3E8ED; --bg:#F7F9FB; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink);
+         font-family:'72',-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif; }
+  .wrap { max-width:1200px; margin:0 auto; padding:24px 20px 56px; }
+  h1 { margin:0 0 2px; font-size:20px; }
+  p.sub { margin:0 0 16px; color:var(--muted); font-size:13px; }
+  .bar { display:flex; flex-wrap:wrap; gap:10px 18px; align-items:center; background:#fff;
+         border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin-bottom:16px; }
+  .bar label { font-size:13px; display:flex; align-items:center; gap:6px; }
+  .bar input[type=number]{ width:70px; }
+  select, input { font:inherit; }
+  .card { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px; overflow:auto; }
+  #chart { width:100%; height:420px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Price-Volume-Mix Bridge — preview</h1>
+  <p class="sub">Same renderer the SAC widget uses, with synthetic data. Tweak the options and it re-renders.</p>
+  <div class="bar"><label><input type="checkbox" data-k="showDrivers" checked/> Top drivers panel</label><label>Drivers shown <input type="number" step="1" data-k="topDrivers" value="6"/></label><label>Currency <select data-k="currency"><option value="ZAR" selected>ZAR</option><option value="USD">USD</option><option value="custom">custom</option></select></label><label>Number scale <select data-k="valueScale"><option value="auto" selected>auto</option><option value="none">none</option><option value="K">K</option><option value="M">M</option><option value="B">B</option></select></label><label>Decimals <input type="number" step="1" data-k="decimals" value="1"/></label></div>
+  <div class="card"><div id="chart"></div></div>
+</div>
+<script src="renderer.core.js"></script>
+<script>
+
+var P=[["Premium 2L",120000,4.32e6,118000,4.60e6],["Classic 2L",410000,9.84e6,452000,10.67e6],["Classic 500ml",300000,3.30e6,281000,3.20e6],
+["Zero 2L",80000,1.92e6,121000,2.98e6],["Juice 1L",150000,3.15e6,139000,3.06e6],["Water 5L",90000,1.26e6,98000,1.33e6],["Energy 250ml",0,0,64000,1.15e6],["Iced Tea 1L",42000,0.71e6,0,0]];
+function sample(){ return {items:P.map(function(p){return {label:p[0],up:p[1],rp:p[2],uc:p[3],rc:p[4]};})}; }
+var opts = {};
+function draw(){
+  var el=document.getElementById("chart");
+  var o=Object.assign({}, opts, {width: el.clientWidth, height: el.clientHeight});
+  el.innerHTML = buildPvmSVG(sample(o), o);
+}
+document.querySelectorAll("[data-k]").forEach(function(el){
+  function read(){ var k=el.dataset.k; opts[k] = el.type==="checkbox" ? el.checked : (el.type==="number" ? Number(el.value) : el.value); }
+  read(); el.addEventListener("change", function(){ read(); draw(); });
+});
+window.addEventListener("resize", draw); draw();
+</script>
+</body>
+</html>

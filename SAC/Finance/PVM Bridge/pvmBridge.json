@@ -1,0 +1,125 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.pvmbridge",
+  "version": "0.1.0",
+  "name": "Price-Volume-Mix Bridge",
+  "newInstancePrefix": "PvmBridge",
+  "description": "Revenue bridge from prior to current period split into volume, mix, price and new/discontinued effects, computed per product, with the top product drivers. ZAR / USD.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABVElEQVR4Xu2bvQ3CQAxGATEFDMIGYQwomICOCeiYgALGIBswCKwBSqREIYkdSzjR2f5eyxV8zz9cwc1mIDZzSfzVLvtIzqXG+54P5mMPWA3ehhOxoKrmJXwBl6VXgKfwFVSmjgCP4TkJPwI8h6ckkDsgCrWACNXv6wJ0QJRWp4CA6B2wTFnA8Xxgv97ldC0/f90e7Ln1fosRwA4gCL8DICDlJTgFqr8C4q29yfit/cynyF4SvgPCC1AdASnSFq8uOmMSvgPCCxCNwD937dQRCZAyxcxqE34EIEC7pawBAdYqpg0EaBu1BgRYq5g2EKBt1BoQYK1i2kCAtlFrQIC1imkDAdpGrQEB1iqmDQRoG7UGBFirmDb1i5FI/xUuqF6RhO+AWoDkgZEXmlnRAc2qRuiCdsZOB3iW0JetdwQ8SqAykTvAkwQuy+DT0gKrdwRPRQRj8QUvGUxjn4nOcgAAAABJRU5ErkJggg==",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-pvmbridge",
+      "url": "/pvmBridge.js",
+      "integrity": "sha256-mEhMz048dKjt4mDePpuuc1OQiDQFsXaQ5EaKz0jf/Yo=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-pvmbridge-styling",
+      "url": "/pvmBridgeStyling.js",
+      "integrity": "sha256-5inuJJC1xZf0cmxOLIrDu7ub0urfZVDhhwraKjSpC/c=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Price-Volume-Mix"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Revenue bridge, prior period to current"
+    },
+    "priorLabel": {
+      "type": "string",
+      "default": "Prior period"
+    },
+    "currentLabel": {
+      "type": "string",
+      "default": "Current period"
+    },
+    "showDrivers": {
+      "type": "boolean",
+      "default": true
+    },
+    "topDrivers": {
+      "type": "integer",
+      "default": 6
+    },
+    "currency": {
+      "type": "string",
+      "default": "ZAR"
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": ""
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "totalColor": {
+      "type": "string",
+      "default": "#5B738B"
+    },
+    "positiveColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "negativeColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "width": {
+      "type": "integer",
+      "default": 1000
+    },
+    "height": {
+      "type": "integer",
+      "default": 420
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Product / SKU / customer",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Units PY, 2 Revenue PY, 3 Units CY, 4 Revenue CY",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
