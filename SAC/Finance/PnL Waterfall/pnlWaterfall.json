@@ -1,0 +1,137 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.pnlwaterfall",
+  "version": "0.1.0",
+  "name": "P&L Waterfall",
+  "newInstancePrefix": "PnlWaterfall",
+  "description": "Income-statement waterfall from revenue to net profit with automatic sub-total bars (Gross profit, EBITDA, EBIT …) and % of revenue labels. ZAR / USD.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABUklEQVR4Xu2bzQ2CQBCF1ViFFmIHWIYerMCbFXizAg9ahnRgIdiGBhMIwv4dcOcx874rm5D3vVmExJ3NiG3mKfFXu+Kdsg6N172M5gsumGrwPiERC19rWsLXhLI4BWgK3+DLNBCgMXxIwo8AzeF9ErzPACu0Aiy075oCToCVUfexTBFQ3R7BZev99nu92hThdc8y5XZZMT8BFJB13gChAMBSskIBWXUDQgGApWSFArLqBoQCAEvJStLX4NggfV2OKgDxczeG+S1AAbER0Q4FaG84hnkBo/4MSnE8H4K3vpyu3uvQAnK8V5jfAhQgtW9RoACUJqSgACnzKFAAShNSUICUeRQoAKUJKShAyjwKFIDShBTtiRFL/xWuaU6RmJ+AVkDKASMtdLNyArqtWpiCfsbBBGiW4Mrm3AIaJfgyeZ8BmiSEskSPltZM9R1BU4nkX3wA90JKu8D2UDEAAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-pnlwaterfall",
+      "url": "/pnlWaterfall.js",
+      "integrity": "sha256-ivU5l5Y3NL7CMdMSHDZhTIQN5SQnBXhQxOJwXqr5Aro=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-pnlwaterfall-styling",
+      "url": "/pnlWaterfallStyling.js",
+      "integrity": "sha256-/a5yNbowETEkkIy19NywvtHbOPCq3rfa2I8PlxfbeBA=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Income Statement"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Revenue to net profit"
+    },
+    "costSign": {
+      "type": "string",
+      "default": "positive"
+    },
+    "revenueLines": {
+      "type": "string",
+      "default": ""
+    },
+    "totalLines": {
+      "type": "string",
+      "default": "Gross profit,EBITDA,EBIT,Profit before tax,Net profit"
+    },
+    "insertTotals": {
+      "type": "string",
+      "default": ""
+    },
+    "finalLabel": {
+      "type": "string",
+      "default": "Net profit"
+    },
+    "showPctOfRevenue": {
+      "type": "boolean",
+      "default": true
+    },
+    "currency": {
+      "type": "string",
+      "default": "ZAR"
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": ""
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "revenueColor": {
+      "type": "string",
+      "default": "#5B738B"
+    },
+    "totalColor": {
+      "type": "string",
+      "default": "#33414A"
+    },
+    "positiveColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "negativeColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "width": {
+      "type": "integer",
+      "default": 1000
+    },
+    "height": {
+      "type": "integer",
+      "default": 440
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "P&L line / account node (in statement order)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Amount",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
