@@ -1,0 +1,137 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.weeksofcover",
+  "version": "0.1.0",
+  "name": "Weeks of Cover",
+  "newInstancePrefix": "WeeksOfCover",
+  "description": "Stock health by category or store: weeks of cover against a target band, plus stock value, out-of-stock % and aged stock % with exception colouring. ZAR / USD.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABkUlEQVR4Xu2bMXLCMBBFSSbDHdLnAqRORZMTpAkNFzCNc4zQxBdwA3egSUUNF6DnDjQwFGSC8WrttSWk3f9qa8z/+lpJyBoMgG0emsj/+dwcmzwXG7PlK6vP+UCqwqu4jHikek2L+DMuLbUGaBJ/gdJ0Y4BG8S4TrgzQLJ4y4Sl05c4Wo3fpO4vJdiVtS/GXAAu9X5cCchawAjsEsrdfsRfFeixuGwrzCYABoaIWKzAg1p4JBQwI5XSssOuAFObyLphPAAzoEh8NsDXg8L3rVed8vyO3tPnzh3irLMV8AmCANDpagAFaelIKDJA6pwV2HTD8eulVa5e/xX1gPgEwwEesUoKtAVle9qtnU4qPt7K83U8p5lO2gfkEwAA2I8qBAco7mAUGsBYph10HNJlL29BlL+D1ExmrmB8C5g1ga0DIcwEKn+cF5hMAA6xW/wswAAkwjvkEXN0ZCvHFeAx7gf93iJCAagkIkYJ7Ur1BdpOAJnftUqVOW+0Q0GgCpYmsAZpMcGlhr5aeSbUuaOpE4IsTZUxe1ixK7ocAAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-weeksofcover",
+      "url": "/weeksOfCover.js",
+      "integrity": "sha256-2q6xOkYElNTibcG7iWaZWesggPL+bLgK1/ANItmPE2c=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-weeksofcover-styling",
+      "url": "/weeksOfCoverStyling.js",
+      "integrity": "sha256-b87ril3VZ0wm54awNRS+VlykLV0Ba5DkYP/9a3GB7zw=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Weeks of Cover"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Stock health against target cover"
+    },
+    "minWeeks": {
+      "type": "integer",
+      "default": 4
+    },
+    "maxWeeks": {
+      "type": "integer",
+      "default": 8
+    },
+    "capWeeks": {
+      "type": "integer",
+      "default": 20
+    },
+    "sortBy": {
+      "type": "string",
+      "default": "risk"
+    },
+    "oosTarget": {
+      "type": "integer",
+      "default": 3
+    },
+    "agedTarget": {
+      "type": "integer",
+      "default": 10
+    },
+    "currency": {
+      "type": "string",
+      "default": "ZAR"
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": ""
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "lowColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "okColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "highColor": {
+      "type": "string",
+      "default": "#E9730C"
+    },
+    "bandColor": {
+      "type": "string",
+      "default": "#D8EFDF"
+    },
+    "width": {
+      "type": "integer",
+      "default": 960
+    },
+    "height": {
+      "type": "integer",
+      "default": 440
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Category / store / department",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Stock on hand (units), 2 Avg weekly sales (units), 3 Stock value, 4 OOS %, 5 Aged stock % (3–5 optional)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
