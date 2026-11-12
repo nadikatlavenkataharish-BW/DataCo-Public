@@ -1,3 +1,9 @@
+/*!
+ * Metal Balance & Reconciliation — renderer
+ * Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.
+ * PROPRIETARY AND CONFIDENTIAL. Licensed for use only under a written agreement with The Data Co (Pty) Ltd.
+ * Unauthorised copying, modification or distribution is prohibited. See LICENSE.
+ */
 /* =============================================================================
  * Metal Balance & Reconciliation (F-factors) — canonical renderer (v0.1)
  * Stages in order (e.g. Reserve model → Grade control → Mill feed → Product).
