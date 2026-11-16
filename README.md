@@ -11,7 +11,7 @@ one JSON manifest and one ZIP bundle.
 
 ## SAC custom widgets by area
 
-23 widgets in five areas. Click a preview to open the widget, or an area for its full-size gallery.
+26 widgets in 6 areas. Click a preview to open the widget, or an area for its full-size gallery.
 
 | Area | Widgets | Focus |
 |---|---|---|
@@ -19,6 +19,7 @@ one JSON manifest and one ZIP bundle.
 | **[Finance](SAC/Finance/README.md)** | 4 | Financial reporting and analysis |
 | **[Mining](SAC/Mining/README.md)** | 8 | Mining operations |
 | **[Retail](SAC/Retail/README.md)** | 4 | Retail performance and merchandise planning |
+| **[HR](SAC/HR/README.md)** | 3 | South African HR compliance from SAP HCM / SuccessFactors data |
 | **[General](SAC/General/README.md)** | 3 | Cross-industry visuals |
 
 ### EXCO
@@ -69,6 +70,16 @@ Retail performance and merchandise planning: store productivity, range classific
 | <a href="SAC/Retail/Weeks%20of%20Cover"><img src="SAC/Retail/Weeks%20of%20Cover/Example.png" width="260" alt="Weeks of Cover"/></a> | **[Weeks of Cover](SAC/Retail/Weeks%20of%20Cover)** | Weeks of cover vs target band, with stock value, OOS % and aged stock % |
 | <a href="SAC/Retail/Sell-through%20Curve"><img src="SAC/Retail/Sell-through%20Curve/Example.png" width="260" alt="Sell-through Curve"/></a> | **[Sell-through Curve](SAC/Retail/Sell-through%20Curve)** | Cumulative sell-through % by week since launch vs plan and target |
 
+### HR
+
+South African HR compliance from SAP HCM / SuccessFactors data: Employment Equity (EEA2) workforce profile and the HR-driven B-BBEE elements (Management Control, Skills Development). Currency switch: ZAR / USD.
+
+| Preview | Widget | What it shows |
+|---|---|---|
+| <a href="SAC/HR/EE%20Workforce%20Profile"><img src="SAC/HR/EE%20Workforce%20Profile/Example.png" width="260" alt="EE Workforce Profile (EEA2)"/></a> | **[EE Workforce Profile (EEA2)](SAC/HR/EE%20Workforce%20Profile)** | EEA2 workforce table by occupational level, race, gender and foreign nationals, with designated % vs sectoral targets |
+| <a href="SAC/HR/BBBEE%20Management%20Control"><img src="SAC/HR/BBBEE%20Management%20Control/Example.png" width="260" alt="B-BBEE Management Control"/></a> | **[B-BBEE Management Control](SAC/HR/BBBEE%20Management%20Control)** | B-BBEE Management Control (Code 200): black and black-female representation vs targets, points out of 19 |
+| <a href="SAC/HR/BBBEE%20Skills%20Development"><img src="SAC/HR/BBBEE%20Skills%20Development/Example.png" width="260" alt="B-BBEE Skills Development"/></a> | **[B-BBEE Skills Development](SAC/HR/BBBEE%20Skills%20Development)** | B-BBEE Skills Development (Code 300): spend and learner indicators, points out of 20, sub-minimum and bonus |
+
 ### General
 
 Cross-industry visuals: calendars, process funnels and project timelines.
@@ -102,7 +113,7 @@ All widgets have `supportsExport: true`, so they appear in PDF/PPT exports.
 ## Folder layout
 
 ```
-SAC/<Area>/<Widget>/        Area = EXCO | Finance | Mining | Retail | General
+SAC/<Area>/<Widget>/        Area = EXCO | Finance | HR | Mining | Retail | General
   <name>.json          manifest (upload to SAC)
   <name>.zip           JS bundle (upload to SAC)
   <name>.js            main web component (renderer inlined)
