@@ -1,0 +1,125 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.eeworkforceprofile",
+  "version": "0.1.0",
+  "name": "EE Workforce Profile (EEA2)",
+  "newInstancePrefix": "EeWorkforceProfile",
+  "description": "South African Employment Equity workforce profile (EEA2 layout): occupational level × Male/Female African, Coloured, Indian, White and foreign nationals, with designated-male, designated-female and disability % against sectoral / EE-plan targets.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABTUlEQVR4Xu2bwQ2CQBREwdiAhenFbvSs3XjRwiwBA1ER2N2ZAxqZP+/qRvLfH8mESFWZ2NTU+IdtQ537N843OF/5wFIHH1MQscouTWX4lsIsaQFKw7/IzDQVoDh8QcJQgPLwGQn5e0AQegERtp9IgRMQJOlZ1oyAZn8vHqsvm6o5Xctnjrvuc+Yccz32uxDhE2ABKCLqWID6hhEWgAyp0z8QiVSFW54PScIngGuCRMtjznTt7cetEhE+ARaAIqKOBahvGGEByJA6boLqG0bM1wSJhsc+x5uzVSLCJ8ACUETUsQD1DSMsABlSx01QfcMIrgkSLY9ub8zzReJ6bKtEhE+ABaCIqGMB6htGWAAypI6boPqGERaADKljAe8NEy8YyfAxqxMw2GqEFIxmnCZAWUJitvRPQFFCZqb8PUBJQmEW+Gppx1L/RKm0RPMlHuIgb3rwkLyBAAAAAElFTkSuQmCC",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-eeworkforceprofile",
+      "url": "/eeWorkforceProfile.js",
+      "integrity": "sha256-xtve/LXBJWig8jeFTwYC3HwMig7e6jgDPtcp1pEz6hs=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-eeworkforceprofile-styling",
+      "url": "/eeWorkforceProfileStyling.js",
+      "integrity": "sha256-Rp48KHG0cQf4LDS0w+gPqdZ/UzcJl0OcPMNg/3C4ddQ=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "Employment Equity Workforce Profile"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "EEA2 — total number of employees by occupational level"
+    },
+    "levelOrder": {
+      "type": "string",
+      "default": "Top management,Senior management,Professionally qualified,Skilled technical,Semi-skilled,Unskilled"
+    },
+    "foreignLabels": {
+      "type": "string",
+      "default": "Foreign national,Foreign nationals,Foreign,Non-SA,Non South African"
+    },
+    "targets": {
+      "type": "string",
+      "default": ""
+    },
+    "disabilityTarget": {
+      "type": "integer",
+      "default": 3
+    },
+    "showPercentRow": {
+      "type": "boolean",
+      "default": true
+    },
+    "showRatios": {
+      "type": "boolean",
+      "default": true
+    },
+    "shadeCells": {
+      "type": "boolean",
+      "default": true
+    },
+    "shadeColor": {
+      "type": "string",
+      "default": "#0A6ED1"
+    },
+    "goodColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "badColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "headBg": {
+      "type": "string",
+      "default": "#F2F4F7"
+    },
+    "width": {
+      "type": "integer",
+      "default": 1100
+    },
+    "height": {
+      "type": "integer",
+      "default": 360
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Dimensions in order: 1 EE occupational level, 2 Race (population group), 3 Gender, 4 Nationality / citizenship (optional)",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Headcount, 2 Headcount with disability (optional)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
