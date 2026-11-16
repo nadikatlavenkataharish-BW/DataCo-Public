@@ -53,6 +53,16 @@ Retail performance and merchandise planning: store productivity, range classific
 | <a href="Retail/Weeks%20of%20Cover"><img src="Retail/Weeks%20of%20Cover/Example.png" width="260" alt="Weeks of Cover"/></a> | **[Weeks of Cover](Retail/Weeks%20of%20Cover)** | Weeks of cover vs target band, with stock value, OOS % and aged stock % |
 | <a href="Retail/Sell-through%20Curve"><img src="Retail/Sell-through%20Curve/Example.png" width="260" alt="Sell-through Curve"/></a> | **[Sell-through Curve](Retail/Sell-through%20Curve)** | Cumulative sell-through % by week since launch vs plan and target |
 
+## [HR](HR/README.md)
+
+South African HR compliance from SAP HCM / SuccessFactors data: Employment Equity (EEA2) workforce profile and the HR-driven B-BBEE elements (Management Control, Skills Development). Currency switch: ZAR / USD.
+
+| Preview | Widget | What it shows |
+|---|---|---|
+| <a href="HR/EE%20Workforce%20Profile"><img src="HR/EE%20Workforce%20Profile/Example.png" width="260" alt="EE Workforce Profile (EEA2)"/></a> | **[EE Workforce Profile (EEA2)](HR/EE%20Workforce%20Profile)** | EEA2 workforce table by occupational level, race, gender and foreign nationals, with designated % vs sectoral targets |
+| <a href="HR/BBBEE%20Management%20Control"><img src="HR/BBBEE%20Management%20Control/Example.png" width="260" alt="B-BBEE Management Control"/></a> | **[B-BBEE Management Control](HR/BBBEE%20Management%20Control)** | B-BBEE Management Control (Code 200): black and black-female representation vs targets, points out of 19 |
+| <a href="HR/BBBEE%20Skills%20Development"><img src="HR/BBBEE%20Skills%20Development/Example.png" width="260" alt="B-BBEE Skills Development"/></a> | **[B-BBEE Skills Development](HR/BBBEE%20Skills%20Development)** | B-BBEE Skills Development (Code 300): spend and learner indicators, points out of 20, sub-minimum and bonus |
+
 ## [General](General/README.md)
 
 Cross-industry visuals: calendars, process funnels and project timelines.
