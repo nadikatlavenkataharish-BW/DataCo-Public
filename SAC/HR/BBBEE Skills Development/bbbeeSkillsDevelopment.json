@@ -1,0 +1,161 @@
+{
+  "eula": "This custom widget is proprietary software of The Data Co (Pty) Ltd (including its DataVizCo brand). It is licensed, not sold, and may only be installed and used by organisations holding a written licence or services agreement with The Data Co (Pty) Ltd. You may not copy, modify, redistribute, sublicense, sell, reverse-engineer or publish it, in whole or in part, without prior written permission. Provided without warranty except as agreed in writing. Licensing enquiries: admin@thedataco.co.za.",
+  "vendor": "Data Co",
+  "license": "Proprietary. Copyright (c) 2026 The Data Co (Pty) Ltd. All rights reserved.",
+  "id": "com.dataco.sac.bbbeeskillsdevelopment",
+  "version": "0.1.0",
+  "name": "B-BBEE Skills Development",
+  "newInstancePrefix": "BbbeeSkillsDevelopment",
+  "description": "B-BBEE Skills Development scorecard (Generic Codes, Code 300): spend on black people and black people with disabilities vs leviable amount, black learners and unemployed learners vs headcount, absorption bonus and the 40% sub-minimum. ZAR / USD.",
+  "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABMUlEQVR4Xu2bMRKCQBAEwfIDPkwTf6Ox/sZEH+YTsLC0ELi9vQkoudnp+AKmd6A24JpGxKYtin/ad0Xn1sb14ebLH6g1+JSMiI05NJbwPZksaQFM4b8YmeYCGMNnJIwFMIc3JNjfgCAMAiJMP9ECNSBI0022tQrojk/30dvbzj0TvgES4HaEHAkgH7CLBLiKyFnNHtBd7q7q9nxwz6CEb4AEoJVhQwLYJooiAagxNiSAbaIoi22C/9rsUMI3QALQyrAhAWwTRZEA1BgbEsA2UZTiTbCWzQ4lfAMkAK0MGxLANlEUCUCNsSEBbBNFkQDUGBvhBQw3RiL9K9zzuUUSvgGDgIILRjT8ZFUDRlON0IJJxnkDmCUksqVfAUYJRib7G8AkIZPFvVr6ptYdgWmIYiFeS6c2fYRFUR4AAAAASUVORK5CYII=",
+  "supportsMobile": true,
+  "supportsBookmark": true,
+  "supportsExport": true,
+  "supportsLinkedAnalysisFilterOnSelection": false,
+  "webcomponents": [
+    {
+      "kind": "main",
+      "tag": "com-dataco-sac-bbbeeskillsdevelopment",
+      "url": "/bbbeeSkillsDevelopment.js",
+      "integrity": "sha256-Yepi0SPsSA5nPMehoQoVH8Qa+6omuXoj9w8MFvvfr8M=",
+      "ignoreIntegrity": true
+    },
+    {
+      "kind": "styling",
+      "tag": "com-dataco-sac-bbbeeskillsdevelopment-styling",
+      "url": "/bbbeeSkillsDevelopmentStyling.js",
+      "integrity": "sha256-57nik1A4i7olUmNihCH7L5jvR20/YILyCOZ3Ahiv/sk=",
+      "ignoreIntegrity": true
+    }
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "default": "B-BBEE Skills Development"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Generic Codes — Code 300"
+    },
+    "pts1": {
+      "type": "integer",
+      "default": 8
+    },
+    "tgt1": {
+      "type": "integer",
+      "default": 6
+    },
+    "pts2": {
+      "type": "integer",
+      "default": 4
+    },
+    "tgt2": {
+      "type": "number",
+      "default": 0.3
+    },
+    "pts3": {
+      "type": "integer",
+      "default": 4
+    },
+    "tgt3": {
+      "type": "number",
+      "default": 2.5
+    },
+    "pts4": {
+      "type": "integer",
+      "default": 4
+    },
+    "tgt4": {
+      "type": "number",
+      "default": 2.5
+    },
+    "bonusPts": {
+      "type": "integer",
+      "default": 5
+    },
+    "bonusTgt": {
+      "type": "integer",
+      "default": 100
+    },
+    "subMinimum": {
+      "type": "integer",
+      "default": 40
+    },
+    "currency": {
+      "type": "string",
+      "default": "ZAR"
+    },
+    "currencySymbol": {
+      "type": "string",
+      "default": ""
+    },
+    "valueScale": {
+      "type": "string",
+      "default": "auto"
+    },
+    "decimals": {
+      "type": "integer",
+      "default": 1
+    },
+    "barColor": {
+      "type": "string",
+      "default": "#0A6ED1"
+    },
+    "bonusColor": {
+      "type": "string",
+      "default": "#925ACE"
+    },
+    "goodColor": {
+      "type": "string",
+      "default": "#1A9850"
+    },
+    "badColor": {
+      "type": "string",
+      "default": "#D73027"
+    },
+    "trackColor": {
+      "type": "string",
+      "default": "#EEF1F4"
+    },
+    "width": {
+      "type": "integer",
+      "default": 980
+    },
+    "height": {
+      "type": "integer",
+      "default": 440
+    }
+  },
+  "dataBindings": {
+    "dataBinding": {
+      "feeds": [
+        {
+          "id": "dimensions",
+          "description": "Optional (e.g. legal entity) — values are summed",
+          "type": "dimension"
+        },
+        {
+          "id": "measures",
+          "description": "Measures in order: 1 Leviable amount, 2 Spend on black people, 3 Spend on black people with disabilities, 4 Black learners (learnerships/apprenticeships/internships), 5 Black unemployed learners, 6 Total employees, 7 Absorption % (optional)",
+          "type": "mainStructureMember"
+        }
+      ]
+    }
+  },
+  "methods": {
+    "getDataSource": {
+      "parameters": [],
+      "body": "return this.dataBindings.getDataBinding('dataBinding').getDataSource();",
+      "returnType": "DataSource"
+    },
+    "openSelectModelDialog": {
+      "parameters": [],
+      "body": "this.dataBindings.getDataBinding('dataBinding').openSelectModelDialog();"
+    }
+  },
+  "events": {
+    "onResultChanged": {
+      "description": "Fired when the widget result set changes."
+    }
+  }
+}
